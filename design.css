@@ -1,0 +1,2653 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --theme-color: #FFFFFF; 
+    --hover-color: #FFFFFF;
+    --accent-about: #FFD166;
+    --accent-contact: #4CC9F0;
+    --nav-h: 100px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Cinzel', serif; 
+    background: #000; color: #fff; 
+    overflow: hidden; height: 100vh; width: 100vw;
+    transition: opacity 0.3s ease;
+}
+/* PERBAIKAN: Aspect container di view 2 agar mirip dengan view 3 */
+
+
+#aspect-container > * {
+    justify-self: center;
+    width: 100%;
+    max-width: 220px;
+}
+
+body.view-2-active,
+body.view-3-active {
+    overflow: hidden;
+}
+/* ==================== */
+/* PERBAIKAN SCROLL UNTUK VIEW 2 DAN 3 */
+/* ==================== */
+#view-3 .data-list-container {
+    display: grid;
+
+    /* Maksimal 4 kolom, tapi bisa kurang */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    max-width: 1000px; /* 4 tombol + 3 gap */
+
+    gap: 16px;               /* GAP RAPAT */
+    justify-content: center; /* PUSATKAN BARIS */
+
+    margin: 0 auto;
+    align-content: start;
+}
+#view-3 .data-list-container > * {
+    justify-self: center;
+    width: 100%;
+    max-width: 220px;
+}
+/* Aktifkan scroll untuk view 2 dan 3 */
+body:not(.view-1-active) #aspect-container,
+body:not(.view-1-active) .data-list-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    max-height: calc(
+        100vh
+        - clamp(90px, 12vh, 140px)   /* header */
+        - var(--nav-h)               /* tinggi tombol REAL */
+        - 24px                       /* breathing space */
+    );
+
+    padding-bottom: 24px;
+}
+
+.no-scroll #aspect-container,
+.no-scroll .data-list-container {
+    overflow: hidden !important;
+    max-height: none !important;
+}
+
+/* Scrollbar khusus untuk view 2 dan 3 */
+body:not(.view-1-active) #aspect-container::-webkit-scrollbar,
+body:not(.view-1-active) .data-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+body:not(.view-1-active) #aspect-container::-webkit-scrollbar-track,
+body:not(.view-1-active) .data-list-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+body:not(.view-1-active) #aspect-container::-webkit-scrollbar-thumb,
+body:not(.view-1-active) .data-list-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--theme-color), rgba(255,255,255,0.7));
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+body:not(.view-1-active) #aspect-container::-webkit-scrollbar-thumb:hover,
+body:not(.view-1-active) .data-list-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffff, var(--theme-color));
+    box-shadow: 0 0 18px var(--theme-color);
+}
+/* Container untuk view 2 dan 3 yang bisa scroll */
+
+#view-2,
+#view-3 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#view-2 {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* Aspect container di view 2 */
+#aspect-container {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(12px, 2vw, 24px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: calc(var(--nav-h) + 30px);
+    
+    /* PERBAIKAN: Tambahkan scroll */
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    align-content: start;
+}
+#aspect-container button {
+    width: 100%;
+    height: 90px;
+}
+/* ==================== */
+/* TOMBOL NAVIGASI RESPONSIF */
+/* ==================== */
+
+.nav-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: var(--nav-h);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(12px, 4vw, 24px);
+
+    z-index: 100;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Tombol navigasi responsif berdasarkan ukuran window */
+.nav-btn {
+    font-size: clamp(0.8rem, 2.2vh, 1.05rem);
+    padding:
+        clamp(8px, 1.8vh, 12px)
+        clamp(18px, 4vw, 36px);
+
+    min-width: clamp(120px, 28vw, 240px);
+    font-weight: bold;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--theme-color);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+    max-width: 80vw;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--theme-color);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.nav-btn.wide-btn {
+    min-width: clamp(140px, 32vw, 300px);
+    padding: clamp(12px, 3vh, 16px)
+             clamp(26px, 5vw, 42px);
+}
+/* Tombol khusus untuk modal */
+.modal-header .modal-back-btn {
+    padding: 10px 25px;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    min-width: clamp(100px, 20vw, 150px);
+    max-width: 200px;
+}
+
+/* ==================== */
+/* LOGO AUDIO - MUNCUL BERSAMA TEKS INTRO */
+/* ==================== */
+
+/* Logo Audio - Muncul bareng teks "NUSANTARA" */
+#sound-toggle { 
+    position: absolute; 
+    bottom: 40px; 
+    right: 40px; 
+    font-size: clamp(1.5rem, 3vw, 2rem); /* Responsif */
+    cursor: pointer; 
+    color: white; 
+    opacity: 0; /* AWALNYA 0, MUNCUL BERSAMA TEKS */
+    z-index: 10000; 
+    transition: 0.3s;
+    animation: fadeInAudio 1s ease 2s forwards; /* MUNCUL DI 2 DETIK (BERSAMA TEKS) */
+}
+
+#sound-toggle:hover { 
+    opacity: 1 !important; 
+    transform: scale(1.2); 
+    color: var(--theme-color); /* BERUBAH WARNA SESUAI TEMA SAAT HOVER */
+    text-shadow: 0 0 10px var(--theme-color);
+}
+
+@keyframes fadeInAudio {
+    to { opacity: 0.8; }
+}
+
+/* ==================== */
+/* BACKGROUND BLUR TAMPILAN 1 (KECUALI INDONESIA) */
+/* ==================== */
+
+body.view-1-active:not(.indo-active) #bg-video,
+body.view-1-active:not(.indo-active) #bg-image {
+    filter: blur(12px);
+    -webkit-filter: blur(12px);
+}
+
+/* ==================== */
+/* ANIMASI UNIK TAMPILAN 2 UNTUK SETIAP REGION */
+/* ==================== */
+
+/* Indonesia - Efek Bendera */
+body.indo-active .aspect-card {
+    position: relative;
+    overflow: hidden;
+}
+
+body.indo-active .aspect-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 0, 0, 0.1) 50%,
+        transparent 70%
+    );
+    animation: flagWave 3s infinite linear;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes flagWave {
+    0% { transform: translateX(-30%) translateY(-30%) rotate(0deg); }
+    100% { transform: translateX(30%) translateY(30%) rotate(360deg); }
+}
+
+/* Bali - Animasi 3D Flip */
+.reveal-bali .aspect-card {
+    animation: bali3dEntry 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+@keyframes bali3dEntry {
+    0% { 
+        transform: rotateY(-180deg) scale(0.5); 
+        opacity: 0; 
+    }
+    70% { 
+        transform: rotateY(20deg) scale(1.1); 
+        opacity: 0.8; 
+    }
+    100% { 
+        transform: rotateY(0deg) scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Baubau - Scale & Rotate */
+.reveal-baubau .aspect-card {
+    animation: baubauScaleRotate 1.2s ease forwards;
+}
+
+@keyframes baubauScaleRotate {
+    0% { 
+        transform: scale(0) rotate(-180deg); 
+        opacity: 0; 
+    }
+    60% { 
+        transform: scale(1.2) rotate(20deg); 
+    }
+    100% { 
+        transform: scale(1) rotate(0); 
+        opacity: 1; 
+    }
+}
+
+/* Mentawai - Slide & Bounce */
+.reveal-mentawai .aspect-card {
+    animation: mentawaiSlideBounce 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes mentawaiSlideBounce {
+    0% { 
+        transform: translateY(100px) rotateX(90deg); 
+        opacity: 0; 
+    }
+    70% { 
+        transform: translateY(-20px) rotateX(-10deg); 
+    }
+    100% { 
+        transform: translateY(0) rotateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Sulsel - Unfold & Expand */
+.reveal-sulsel .aspect-card {
+    animation: sulselUnfold 1s ease forwards;
+    transform-origin: top center;
+}
+
+@keyframes sulselUnfold {
+    0% { 
+        transform: scaleY(0) rotateX(-90deg); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: scaleY(1) rotateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Papua - Flip Card */
+.reveal-papua .aspect-card {
+    animation: papuaFlipCard 1.2s ease forwards;
+    transform-style: preserve-3d;
+}
+
+@keyframes papuaFlipCard {
+    0% { 
+        transform: rotateX(180deg) scale(0.8); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: rotateX(0) scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* ==================== */
+/* HOVER EFFECT TAMPILAN 2 (KHUSUS UNTUK SETIAP REGION) */
+/* ==================== */
+
+/* Indonesia Hover */
+body.indo-active .aspect-card:hover {
+    transform: scale(1.08);
+    box-shadow: 
+        0 0 30px rgba(255, 0, 0, 0.5),
+        0 0 60px rgba(255, 255, 255, 0.3);
+    border-color: #FF0000;
+}
+
+/* Bali Hover */
+.reveal-bali .aspect-card:hover {
+    transform: scale(1.05) rotateY(10deg);
+    box-shadow: 
+        0 15px 35px rgba(0, 255, 255, 0.4),
+        inset 0 0 20px rgba(0, 255, 255, 0.2);
+    border-color: #00FFFF;
+}
+
+/* Baubau Hover */
+.reveal-baubau .aspect-card:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 
+        0 15px 35px rgba(255, 215, 0, 0.4),
+        inset 0 0 20px rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+}
+
+/* Mentawai Hover */
+.reveal-mentawai .aspect-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 
+        0 15px 35px rgba(57, 255, 20, 0.4),
+        inset 0 0 20px rgba(57, 255, 20, 0.2);
+    border-color: #39FF14;
+}
+
+/* Sulsel Hover */
+.reveal-sulsel .aspect-card:hover {
+    transform: scale(1.05) rotateX(5deg);
+    box-shadow: 
+        0 15px 35px rgba(139, 69, 19, 0.4),
+        inset 0 0 20px rgba(139, 69, 19, 0.2);
+    border-color: #8B4513;
+}
+
+/* Papua Hover */
+.reveal-papua .aspect-card:hover {
+    transform: scale(1.05) rotateX(-5deg);
+    box-shadow: 
+        0 15px 35px rgba(160, 32, 240, 0.4),
+        inset 0 0 20px rgba(160, 32, 240, 0.2);
+    border-color: #A020F0;
+}
+
+/* ==================== */
+/* TAMPILAN 1 - POP OUT ANIMASI & TOMBOL PANAH */
+/* ==================== */
+
+@keyframes floatCard {
+    0%, 100% { 
+        transform: translateY(0) rotateX(5deg) scale(0.95); 
+    }
+    50% { 
+        transform: translateY(-10px) rotateX(5deg) scale(0.95); /* Diperkecil dari -15px */
+    }
+}
+
+@keyframes popOut {
+    0% { transform: scale(0.95) rotateX(5deg); }
+    50% { transform: scale(1.02) rotateX(0deg); }
+    100% { transform: scale(1) rotateX(0deg); }
+}
+
+/* Efek ripple untuk tombol panah */
+.nav-arrow {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    background: transparent; 
+    border: 2px solid var(--theme-color); 
+    color: var(--theme-color);
+    width: clamp(45px, 8vw, 60px); /* Responsif */
+    height: clamp(45px, 8vw, 60px); /* Responsif */
+    border-radius: 50%; 
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Responsif */
+    cursor: pointer; 
+    transition: 0.2s; 
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* Animasi transisi tombol panah */
+
+@keyframes slideOutLeft {
+    from { 
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(-100px) translateY(-50%);
+    }
+}
+
+@keyframes slideOutRight {
+    from { 
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(100px) translateY(-50%);
+    }
+}
+
+/* ==================== */
+/* HILANGKAN SCROLL (KECUALI INDONESIA) */
+/* ==================== */
+
+body:not(.indo-active) .view-section:not(#view-2):not(#view-3) {
+    overflow: hidden !important;
+}
+
+body:not(.indo-active) .detail-right,
+body:not(.indo-active) .aspect-grid {
+    overflow: hidden !important;
+}
+
+/* Scroll khusus untuk Indonesia */
+body.indo-active .data-list-container,
+body.indo-active .detail-right {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+/* Scrollbar khusus untuk Indonesia */
+body.indo-active ::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.indo-active ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+body.indo-active ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF0000, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ==================== */
+/* MODAL BANNER - HORIZONTAL LAYOUT RESPONSIVE */
+/* ==================== */
+
+/* Container untuk banner modal */
+#modal-banner-wrap {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Tidak wrap di desktop */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    padding: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important; /* Pastikan tidak ada scroll di desktop */
+}
+
+/* Pastikan banner tidak wrap dan ukurannya konsisten */
+.acc-item {
+    flex-shrink: 0 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Container untuk banner */
+.modal-body .aspect-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+.aspect-grid {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+
+    /* scroll */
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Tombol aspek */
+.aspect-grid button {
+    height: 90px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* Untuk layar di atas 768px - Tampilan horizontal tanpa scroll */
+@media (min-width: 769px) {
+    .modal-body {
+        overflow: hidden !important; /* Nonaktifkan scroll di desktop */
+    }
+    
+    #modal-banner-wrap {
+        flex-wrap: nowrap !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+    }
+    
+    /* Pastikan modal body cukup tinggi untuk menampung banner */
+    .modal-body .aspect-grid {
+        min-height: 500px; /* Tinggi minimum untuk desktop */
+    }
+}
+
+/* Untuk layar di bawah 768px - Scroll horizontal */
+@media (max-width: 768px) {
+    .modal-body {
+        overflow-x: auto !important;
+        overflow-y: hidden !important; /* Hanya scroll horizontal */
+        justify-content: flex-start !important; /* Mulai dari kiri */
+        align-items: center !important;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll di mobile */
+        padding: 20px 10px !important; /* Kurangi padding samping */
+    }
+    
+    #modal-banner-wrap {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        min-width: max-content !important; /* Pastikan konten tidak wrap */
+        padding: 10px 20px !important;
+        gap: 20px !important;
+    }
+    
+    /* Ukuran banner di mobile sedikit lebih kecil */
+    .acc-item {
+        width: 200px !important;
+        height: 340px !important;
+        flex-shrink: 0 !important; /* Tidak mengecil */
+    }
+    
+    .acc-item.active {
+        width: 240px !important;
+        height: 420px !important;
+    }
+    
+    /* Custom scrollbar horizontal */
+    .modal-body::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .modal-body::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        margin: 0 20px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, var(--theme-color), rgba(255,255,255,0.7));
+        border-radius: 10px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #ffffff, var(--theme-color));
+    }
+    #aspect-container,
+    .data-list-container {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 14px;
+    }
+    #aspect-container {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 14px;
+    }
+
+    .aspect-card {
+        max-width: 200px;
+    }
+}
+#aspect-container > *,
+.data-list-container > * {
+    justify-self: center;
+    width: 100%;
+    max-width: 220px;
+}
+/* ==================== */
+/* KODE CSS LAMA (TIDAK DIUBAH) - DILANJUTKAN DARI SINI */
+/* ==================== */
+
+/* Intro Section */
+#intro-layer { position: fixed; inset: 0; z-index: 9999; background: black; }
+#intro-vid { width: 100%; height: 100%; object-fit: cover; }
+#intro-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); transition: opacity 2s; opacity: 0; }
+#intro-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; transition: opacity 2s; opacity: 0; }
+
+.nusantara-text {
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Responsif */
+    letter-spacing: clamp(5px, 2vw, 10px); /* Responsif */
+    background: linear-gradient(to right, red 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+#btn-jelajah {
+    margin-top: 40px; padding: clamp(12px, 3vw, 15px) clamp(40px, 8vw, 50px); /* Responsif */
+    background: rgba(255,255,255,0.1); border: 2px solid white;
+    color: white; font-family: 'Cinzel'; font-size: clamp(1rem, 2vw, 1.2rem); /* Responsif */
+    cursor: pointer; position: relative; overflow: hidden;
+    backdrop-filter: blur(5px); transition: 0.3s;
+}
+.btn-fill { position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: white; z-index: 0; transition: width 0.4s ease; }
+#btn-jelajah:hover .btn-fill { width: 100%; }
+.btn-text { position: relative; z-index: 1; transition: 0.4s; }
+#btn-jelajah:hover .btn-text { color: black; }
+
+/* Backgrounds */
+#bg-image {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+#bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+#main-bg-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+#bg-video,
+#bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+}
+#main-bg-layer,
+#bg-video,
+#bg-image,
+.bg-overlay {
+    pointer-events: none;
+}
+.active-bg { opacity: 1 !important; }
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0,0,0,0);
+    transition: backdrop-filter 0.6s ease, background 0.6s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+body.blur-bg .bg-overlay {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(0,0,0,0.4);
+}
+#view-2 .nav-buttons {
+    flex-shrink: 0;
+    padding: 14px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+#view-2 .view-title,
+#view-3 .view-title {
+    flex-shrink: 0;
+}
+body.hide-back-btn #view-2 .nav-btn,
+body.hide-back-btn #view-3 .nav-btn,
+body.hide-back-btn #view-4 .back-btn {
+    display: none !important;
+}
+
+/* Hanya modal yang menggunakan accent khusus */
+body.modal-accent {
+    --theme-color: var(--accent-about);
+    --hover-color: var(--accent-about);
+}
+
+body.modal-accent.contact-mode {
+    --theme-color: var(--accent-contact);
+    --hover-color: var(--accent-contact);
+}
+.menu-utama-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 200000;
+    pointer-events: auto;
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px); /* Responsif */
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Responsif */
+    font-weight: bold;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid var(--theme-color);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    display: none;
+    overflow: hidden;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.85),
+        0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+body:not(.view-1-active) .menu-utama-btn {
+    display: block;
+}
+
+.menu-utama-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--theme-color);
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Header & Nav - PERBAIKAN POSISI */
+#main-header { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    padding: clamp(20px, 3vw, 30px); /* Responsif */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    opacity: 1 !important;
+    pointer-events: auto;
+    z-index: 5000;
+    transition: none !important;
+    transform: none !important;
+}
+
+.hamburger-menu { 
+    cursor: pointer; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px; 
+    padding: 10px; 
+    transition: 0.3s; 
+    pointer-events: auto; 
+    z-index: 10001;
+    position: relative;
+}
+
+.bar {
+    width: clamp(30px, 5vw, 35px); /* Responsif */
+    height: 3px;
+    background: white;
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    transform-origin: left center;
+}
+
+.hamburger-menu:hover .bar {
+    background: var(--theme-color);
+    box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* PERBAIKAN: Region title di kanan atas, tetap di kanan */
+.region-display {
+    font-size: clamp(1.5rem, 3vw, 2rem); /* Responsif */
+    font-weight: bold;
+    letter-spacing: clamp(2px, 1vw, 3px); /* Responsif */
+    color: #ffffff;
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.95),
+        0 0 30px rgba(0, 0, 0, 0.7);
+    display: none;
+    position: absolute;
+    right: clamp(20px, 3vw, 30px); /* Responsif */
+    top: clamp(20px, 3vw, 30px); /* Responsif */
+    transform: none !important; /* Jangan pindah ke tengah */
+    pointer-events: none;
+}
+
+body.view-1-active .region-display {
+    display: block;
+}
+
+.view-title {
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: clamp(24px, 5vh, 60px);
+    padding: 0 clamp(10px, 5vw, 40px);
+    max-width: 90vw;
+    text-shadow: 0 0 15px black;
+}
+
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#modal-overlay.show {
+    display: flex;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal-box {
+    width: 95%;
+    max-width: 1600px;
+    height: 80vh;
+    max-height: 80vh;
+    background: rgba(0, 0, 0, 0.85); /* Tetap gelap untuk overlay */
+    border: 1px solid var(--theme-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0,0,0,0.95);
+    animation: modalFadeIn 0.4s ease;
+    overflow: hidden;
+    margin: auto;
+    background-image: url('licensed-image.jpg'); /* Gunakan licensed-image.jpg */
+    background-size: cover; /* Cover seluruh modal, tidak berulang */
+    background-position: center; /* Posisi tengah */
+    background-repeat: no-repeat; /* Tidak berulang */
+    position: relative;
+}
+
+.modal-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%, /* Overlay lebih gelap */
+        rgba(0, 0, 0, 0.75) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+.modal-header {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: clamp(20px, 3vw, 28px) clamp(30px, 5vw, 50px) clamp(25px, 4vw, 34px) !important; /* Responsif */
+    flex-shrink: 0 !important;
+    flex-direction: row !important;
+    background: rgba(0, 0, 0, 0.6); /* Background gelap untuk header */
+    border-radius: 20px 20px 0 0;
+    backdrop-filter: blur(5px); /* Efek blur halus */
+}
+
+.modal-header::after {
+    content: "";
+    position: absolute;
+    left: clamp(30px, 5vw, 50px); /* Responsif */
+    right: clamp(30px, 5vw, 50px); /* Responsif */
+    bottom: 10px;
+    height: 2px;
+    background: var(--theme-color);
+    box-shadow: 0 0 12px var(--theme-color);
+    border-radius: 2px;
+}
+
+.modal-header h2 {
+    font-size: clamp(1.3rem, 2vw, 1.6rem); /* Responsif */
+    letter-spacing: clamp(2px, 1vw, 3px); /* Responsif */
+    font-weight: 700;
+    color: white;
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.85),
+        0 0 14px rgba(0,0,0,0.6);
+}
+
+.modal-header,
+.modal-body {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* PERBAIKAN: Tombol KEMBALI di modal dengan font default (Lato) */
+.modal-header .modal-back-btn {
+    background: none;
+    border: none;
+    color: var(--theme-color);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsif */
+    cursor: pointer;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: clamp(8px, 2vw, 10px) clamp(20px, 3vw, 25px); /* Responsif */
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--theme-color);
+    backdrop-filter: blur(10px);
+    white-space: nowrap !important; /* Tidak wrap teks */
+    margin-left: 15px !important; /* Jarak dari judul */
+}
+
+.modal-header .modal-back-btn:hover {
+    transform: scale(1.1);
+    background: var(--theme-color);
+    color: black;
+    text-shadow: 0 0 12px var(--theme-color);
+}
+
+.modal-body {
+    padding: clamp(25px, 4vw, 40px) clamp(30px, 5vw, 50px); /* Responsif */
+    overflow-y: auto;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.9;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem); /* Responsif */
+    color: rgba(255,255,255,0.9);
+    flex: 1;
+    min-height: 0;
+    max-height: calc(80vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); /* Background transparan untuk konten */
+    border-radius: 0 0 20px 20px;
+}
+
+/* Jika konten tinggi, mulai dari atas */
+.modal-body.scrollable {
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.modal-body .aspect-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center; /* TENGAH VERTIKAL */
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+    min-height: 0;
+    height: 100%; /* ISI SELURUH TINGGI */
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -360px;
+    width: 320px;
+    height: 100vh;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 40px rgba(0,0,0,0.9);
+    padding: 40px 30px;
+    z-index: 5000;
+    transition: left 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 4999;
+    display: none;
+}
+
+body.sidebar-open #sidebar-overlay {
+    display: block;
+}
+
+#sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 14px;
+    margin-bottom: 30px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+.sidebar-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--theme-color);
+    box-shadow: 0 0 12px var(--theme-color);
+    border-radius: 2px;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #ff3b3b;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10001;
+    pointer-events: auto;
+    transition:
+        transform 0.2s ease,
+        text-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.sidebar-header button:hover {
+    transform: scale(1.2) rotate(90deg);
+    text-shadow: 0 0 12px rgba(255, 59, 59, 0.9);
+    opacity: 1;
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.sidebar-menu li {
+    padding: 18px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(0,0,0,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: 
+        all 0.3s ease,
+        color 0.3s ease;
+}
+
+.sidebar-menu li:hover {
+    color: #ffffff !important;
+    padding-left: 22px;
+    background: rgba(255,255,255,0.05);
+    text-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Visual Elements untuk Modal */
+.acc-item {
+    width: 220px; /* Diperkecil dari 280px */
+    height: 380px; /* Diperkecil dari 500px */
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid var(--theme-color);
+    border-radius: 18px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),
+        inset 0 0 0 rgba(255,255,255,0);
+    position: relative;
+    overflow: hidden;
+    transform-origin: center center;
+    transition:
+        transform 0.55s cubic-bezier(.25,.8,.25,1),
+        width 0.4s ease,
+        height 0.4s ease,
+        opacity 0.35s ease,
+        filter 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.acc-item:not(.active) {
+    filter: grayscale(100%) brightness(0.7);
+}
+
+.acc-item:not(.active):hover {
+    transform: scale(1.03); /* Scale lebih kecil */
+    filter: grayscale(70%) brightness(0.8);
+}
+
+.acc-item:not(.active):hover .acc-name-rot {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    transform: rotate(-90deg) scale(1.03) !important; /* Scale lebih kecil */
+}
+
+.acc-item.active {
+    width: 280px; /* Ukuran original */
+    height: 480px; /* Lebih tinggi dari aslinya */
+    transform: scale(1.05);
+    z-index: 10;
+    background: rgba(255,255,255,0.12);
+    border-color: var(--theme-color);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.85),
+        0 0 35px rgba(255,255,255,0.15);
+    filter: grayscale(0%) brightness(1);
+    animation: bannerSwitch 0.4s ease forwards;
+}
+
+.acc-data-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+    padding: 15px; /* Lebih kecil */
+    z-index: 3;
+}
+
+.acc-item.active .acc-data-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.acc-item.active .acc-data-content h3 {
+    font-size: 1.8rem; /* Diperkecil dari 2rem */
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+
+.acc-item.active .acc-data-content p {
+    font-size: 0.95rem; /* Lebih kecil */
+    margin: 4px 0;
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+    color: rgba(255,255,255,0.9);
+}
+
+/* PERBAIKAN: Teks di banner menggunakan font Lato (sama seperti tombol KEMBALI) */
+.acc-data-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Cinzel', serif; /* FONT BARU untuk judul */
+    font-weight: 700;
+}
+
+.acc-data-content p {
+    font-size: 1rem;
+    margin: 4px 0;
+    line-height: 1.6;
+    font-family: 'Lato', sans-serif;
+    color: rgba(255,255,255,0.9);
+}
+
+.acc-name-rot {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(0,0,0,0.9);
+    transition: opacity 0.35s ease;
+    color: white;
+    z-index: 2;
+    font-family: 'Cinzel', serif; /* FONT BARU untuk nama */
+}
+
+.acc-item.active .acc-name-rot {
+    opacity: 0;
+    transform: rotate(-90deg) !important; /* Tetap vertikal meski tersembunyi */
+}
+.acc-item:not(.active) .acc-name-rot {
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    font-size: 1.1rem; /* Lebih kecil */
+    letter-spacing: 2.5px; /* Lebih kecil */
+    transition: all 0.3s ease;
+    transform: rotate(-90deg) !important;
+    transform-origin: center center !important;
+    white-space: nowrap;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+}
+.about-mode .acc-item:not(.active) .acc-name-rot {
+    color: var(--accent-about);
+    font-weight: bold;
+}
+
+.contact-mode .acc-item:not(.active) .acc-name-rot {
+    color: var(--accent-contact); /* Warna biru untuk Contact Us */
+    font-weight: bold;
+}
+
+.banner-img-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(0,0,0,0.85) 0%, 
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.3) 100%
+    );
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.acc-item.active .banner-img-layer {
+    opacity: 0.7;
+    background: linear-gradient(
+        135deg, 
+        rgba(0,0,0,0.7) 0%, 
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.2) 100%
+    );
+}
+
+#modal-overlay .aspect-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    background: transparent; 
+    border: 2px solid var(--theme-color); 
+    color: var(--theme-color);
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-arrow.left-click {
+    animation: slideOutLeft 0.4s ease forwards;
+}
+
+.nav-arrow.right-click {
+    animation: slideOutRight 0.4s ease forwards;
+}
+
+.left { left: 50px; } 
+.right { right: 50px; }
+
+.nav-arrow:hover { 
+    background: var(--theme-color); 
+    color: black; 
+    box-shadow: 0 0 25px var(--theme-color); 
+    transform: translateY(-50%) scale(1.1); 
+}
+
+/* View Sections */
+.view-section { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    padding: 100px 50px; 
+    z-index: 50; 
+    display: none; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    pointer-events: auto;
+}
+
+.glass-mode { background: transparent; }
+
+/* View 4 Detail Layout dengan tombol KEMBALI yang melebar */
+#view-4 .detail-layout {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1400px;
+    max-height: 80vh;
+    border: 1px solid var(--theme-color);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#view-4 .back-btn.full-btn {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px 25px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--theme-color);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 30px;
+    align-self: stretch;
+    box-sizing: border-box;
+}
+
+#view-4 .back-btn.full-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--theme-color);
+}
+.detail-left {
+    flex: 1;
+    min-width: 250px;
+    max-width: 70%;
+    height: auto;
+}
+.detail-right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
+    position: relative;
+}
+.detail-left img { width: 100%; height: 100%; object-fit: cover; }
+.detail-right { 
+    flex: 1; 
+    padding: 40px; 
+    overflow-y: auto; 
+    text-shadow: 0 2px 5px black; 
+    min-height: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* PERBAIKAN: Tombol KEMBALI di view 4 yang melebar */
+#view-4 .back-btn {
+    align-self: stretch; /* Melebar penuh */
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--theme-color);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+    width: 100%; /* Lebar penuh */
+    text-align: center;
+}
+
+#view-4 .back-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--theme-color);
+}
+
+/* PERBAIKAN: Main Card dengan teks di tengah dan garis berwarna */
+.main-card {
+    position: relative;
+    width: clamp(300px, 60vw, 500px); /* Responsif */
+    max-width: 70vw;
+    height: clamp(225px, 45vw, 375px); /* Responsif - tetap 4:3 aspect ratio */
+    aspect-ratio: 4/3; /* Pastikan aspect ratio 4:3 */
+    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform: scale(0.95) rotateX(5deg);
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    animation: floatCard 6s ease-in-out infinite;
+}
+.main-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        var(--theme-color) 50%,
+        transparent 60%
+    ) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.main-card:hover { 
+    transform: scale(1) rotateX(0deg); 
+    animation: popOut 0.6s ease forwards;
+}
+.main-card:hover .colored-line {
+    width: clamp(100px, 20vw, 140px); /* Responsif */
+    height: 4px; /* Diperkecil dari 5px */
+    box-shadow: 
+        0 0 20px var(--theme-color), /* Diperkecil dari 30px */
+        0 0 40px rgba(255, 255, 255, 0.6), /* Diperkecil dari 60px */
+        0 0 60px rgba(255, 255, 255, 0.3); /* Diperkecil dari 90px */
+}
+
+
+.main-card:hover::before {
+    opacity: 0.8;
+}
+/* Animasi klik saat masuk ke view 2 */
+.main-card.click-anim {
+    animation: clickExpand 0.5s ease forwards;
+    z-index: 9999;
+    animation-fill-mode: forwards;
+}
+
+@keyframes clickExpand {
+    0% { 
+        transform: scale(1) rotateX(0deg); 
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1) rotateX(10deg); 
+        opacity: 0.8;
+    }
+    100% { 
+        transform: scale(15) rotateX(0deg); 
+        opacity: 0;
+    }
+}
+
+/* PERBAIKAN: Cover image dengan aspect ratio 3:4 dan lebih besar */
+.card-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.card-visual img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* Gradient hitam overlay di seluruh gambar */
+.card-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.6) 75%,
+        rgba(0, 0, 0, 0.85) 90%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Gradient lebih gelap di bagian bawah */
+.card-visual::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Area gelap lebih besar di bawah */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    z-index: 2;
+}
+
+/* PERBAIKAN: Card text di tengah dengan subtitle-box */
+.card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: clamp(30px, 6vw, 40px) clamp(40px, 8vw, 50px) clamp(40px, 8vw, 50px); /* Responsif */
+    text-align: center;
+    pointer-events: none;
+}
+
+#cover-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem); /* Responsif */
+    letter-spacing: clamp(2px, 1vw, 3px); /* Responsif */
+    color: white;
+    text-shadow: 
+        0 2px 20px rgba(0, 0, 0, 0.95),
+        0 0 40px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 12px; /* Diperkecil dari 15px */
+    font-weight: 700;
+    line-height: 1.1;
+    pointer-events: none;
+    max-width: 90%;
+}
+
+.subtitle-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    pointer-events: none;
+}
+
+#cover-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Responsif */
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: clamp(1px, 1vw, 2px); /* Responsif */
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    font-weight: 300;
+    text-shadow: 
+        0 1px 10px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(0, 0, 0, 0.6);
+    margin-bottom: 8px; /* Diperkecil dari 10px */
+    pointer-events: none;
+}
+
+
+.colored-line { 
+    width: clamp(80px, 15vw, 100px); /* Responsif */
+    height: 3px; /* Diperkecil dari 4px */
+    background: var(--theme-color); 
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 
+        0 0 15px var(--theme-color), /* Diperkecil dari 20px */
+        0 0 30px rgba(255, 255, 255, 0.4), /* Diperkecil dari 40px */
+        0 0 45px rgba(255, 255, 255, 0.2); /* Diperkecil dari 60px */
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Aspect Grid */
+#view-1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 100px 50px;
+    z-index: 50;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    /* Tambahkan transition untuk animasi smooth */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#view-1.slide-left-out {
+    animation: slideLeftOut 0.4s ease forwards;
+}
+
+#view-1.slide-right-out {
+    animation: slideRightOut 0.4s ease forwards;
+}
+
+#view-1.slide-left-in {
+    animation: slideLeftIn 0.4s ease forwards;
+}
+
+#view-1.slide-right-in {
+    animation: slideRightIn 0.4s ease forwards;
+}
+
+#view-1.page-transition-out {
+    animation: fadeOutView1 0.3s ease forwards;
+}
+
+#view-1.page-transition-in {
+    animation: fadeInView1 0.3s ease forwards;
+}
+
+/* Animasi keluar ke kiri (saat klik panah kanan) */
+@keyframes slideLeftOut {
+    from { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
+/* Animasi keluar ke kanan (saat klik panah kiri) */
+@keyframes slideRightOut {
+    from { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+/* Animasi masuk dari kanan (untuk region baru setelah klik panah kiri) */
+@keyframes slideRightIn {
+    from { 
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animasi masuk dari kiri (untuk region baru setelah klik panah kanan) */
+@keyframes slideLeftIn {
+    from { 
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutView1 {
+    from { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to { 
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInView1 {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* PERBAIKAN: Cover di view 1 dengan aspect ratio 3:4 dan lebih besar */
+#cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4/3; /* Maintain aspect ratio */
+}
+
+
+.aspect-card {
+    width: 100%;                 /* IKUT GRID */
+    max-width: 240px;            /* BATAS DESKTOP */
+    aspect-ratio: 3 / 4;         /* PROPORSI */
+    height: auto;
+
+    justify-self: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid var(--theme-color);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aspect-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.aspect-label { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    font-size: clamp(1.2rem, 2vw, 1.5rem); /* Responsif */
+    font-weight: bold; 
+    color: white; 
+    z-index: 2; 
+    text-shadow: 0 2px 5px black; 
+    background: rgba(0,0,0,0.5);
+    padding: 10px 0;
+}
+
+.aspect-card:hover img {
+    transform: scale(1.05);
+}
+
+.aspect-card:hover {
+    border-color: var(--hover-color);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transform: scale(1.05);
+}
+
+.aspect-card .aspect-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bold;
+    padding: 10px 0;
+    text-shadow: 0 2px 5px black;
+    z-index: 2;
+}
+/* Data List */
+.data-list-container {
+    flex: 1;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    position: relative;
+}
+
+.data-card {
+    position: relative;
+    width: clamp(220px, 22vw, 260px);
+
+    /* 🔥 tinggi mengikuti tinggi layar */
+    height: clamp(
+        220px,   /* minimum */
+        28vh,    /* berdasarkan tinggi window */
+        360px    /* maksimum */
+    );
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid var(--theme-color);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.data-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.data-card:hover img {
+    transform: scale(1.05);
+}
+
+.data-card:hover {
+    border-color: var(--hover-color);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transform: scale(1.05);
+}
+
+.data-card .data-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Responsif */
+    font-weight: bold;
+    padding: 10px 0;
+    text-shadow: 0 2px 5px black;
+}
+
+/* Dark Overlay */
+#dark-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+body.view-1-active #dark-overlay {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes breathing { 
+    0%,100%{transform:scale(1);} 
+    50%{transform:scale(1.03);} 
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Region Transitions */
+.reveal-indo { animation: fadeInSlide 1s ease; } 
+@keyframes fadeInSlide { 
+    from{ opacity:0; transform:translateX(-50px); } 
+    to{ opacity:1; transform:translateX(0); } 
+}
+
+.reveal-bali { animation: wetReveal 1s ease; } 
+@keyframes wetReveal { 
+    from { width: 0; opacity: 0; filter: blur(10px); } 
+    to { width: 100%; opacity: 1; filter: blur(0); } 
+}
+
+.reveal-baubau { animation: royalRise 1.5s ease; } 
+@keyframes royalRise { 
+    0% { transform: translateY(100px); opacity: 0; } 
+    100% { transform: translateY(0); opacity: 1; } 
+}
+
+.reveal-mentawai { 
+    animation: gachaPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+} 
+@keyframes gachaPop { 
+    0% { transform: scale(0) rotate(360deg); opacity: 0; } 
+    80% { transform: scale(1.1) rotate(-10deg); } 
+    100% { transform: scale(1) rotate(0); opacity: 1; } 
+}
+
+.reveal-sulsel { animation: unfold 1s ease; } 
+@keyframes unfold { 
+    from { transform: scaleY(0); } 
+    to { transform: scaleY(1); } 
+}
+
+.reveal-papua { animation: flipCard 0.8s ease; } 
+@keyframes flipCard { 
+    from { transform: rotateX(180deg); opacity: 0; } 
+    to { transform: rotateX(0); opacity: 1; } 
+}
+
+@keyframes bannerSwitch {
+    0% { 
+        transform: scale(0.95); 
+        opacity: 0.8; 
+    }
+    50% { 
+        transform: scale(1.02); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: scale(1.05); 
+        opacity: 1; 
+    }
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        var(--theme-color),
+        rgba(255,255,255,0.7)
+    );
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        var(--theme-color)
+    );
+    box-shadow: 0 0 18px var(--theme-color);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-color) rgba(255,255,255,0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* PERBAIKAN: Tombol navigasi di mobile lebih kecil */
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-width: 140px;
+    }
+    
+    .nav-btn.wide-btn {
+        min-width: 160px;
+        padding: 12px 25px;
+    }
+    
+    .nav-buttons {
+        gap: 15px;
+        padding: 15px;
+        min-height: 80px;
+    }
+    
+    /* PERBAIKAN: Scroll area di mobile */
+    body:not(.view-1-active) #aspect-container,
+    body:not(.view-1-active) .data-list-container {
+        margin-bottom: 80px;
+    }
+    
+    #view-2, #view-3 {
+        padding-top: 100px;
+        padding-bottom: 0;
+    }
+    
+    .acc-item {
+        width: 180px; /* Lebih kecil di mobile */
+        height: 300px; /* Lebih kecil di mobile */
+    }
+    .acc-item.active {
+        width: 220px; /* Ukuran aktif di mobile */
+        height: 380px; /* Ukuran aktif di mobile */
+    }
+    
+    .acc-item:not(.active) .acc-name-rot {
+        font-size: 1rem; /* Lebih kecil di mobile */
+        letter-spacing: 2px;
+    }
+    
+    .acc-item.active .acc-data-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .acc-item.active .acc-data-content p {
+        font-size: 0.85rem;
+    }
+    #view-4 .detail-layout {
+        flex-direction: column;
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    #view-4 .back-btn.full-btn {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    #view-4 .detail-left {
+        width: 100%;
+        max-width: 100%;
+        height: 35vh;
+        flex: none;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    #view-4 .detail-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    #view-4 .detail-right {
+        width: 100%;
+        padding: 24px;
+    }
+
+    /* PERBAIKAN: Cover di mobile tetap aspect ratio 3:4 */
+    #cover-img, .card-visual img { 
+        width: 100%;
+    }
+    
+    .main-card {
+        width: 90vw;
+        max-width: 400px;
+        height: 300px;
+    }
+
+    .main-card:hover .colored-line {
+        width: 100px;
+    }
+    
+    #cover-title {
+        font-size: 1.8rem;
+    }
+    
+    #cover-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* PERBAIKAN: Garis berwarna lebih pendek */
+    .colored-line {
+        width: 80px;
+    }
+    
+    #sidebar {
+        width: 100%;
+        left: -100%;
+        padding: 40px 25px;
+    }
+
+    .card-visual {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%; /* Isi penuh parent */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .card-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-text {
+        padding: 30px 40px 40px;
+    }
+
+    
+
+    .modal-box {
+        width: 95%;
+        max-width: 95%;
+        max-height: 90vh;
+    }
+
+    .modal-body { 
+        padding: 25px; 
+        scrollbar-width: thin;
+        scrollbar-color: var(--theme-color) rgba(255,255,255,0.08);
+        scroll-behavior: smooth;
+    }
+
+    .modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        margin: 4px 0;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, var(--theme-color), rgba(255,255,255,0.7));
+        border-radius: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #ffffff, var(--theme-color));
+    }
+
+    .modal-header {
+        padding: 20px 25px !important;
+        flex-direction: row !important; /* Tetap horizontal */
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-wrap: nowrap !important; /* Tidak wrap */
+        min-height: 60px !important; /* Tinggi minimum */
+    }
+    
+    .modal-header h2 {
+        font-size: 1.4rem !important;
+        order: 1 !important;
+        flex: 1 !important;
+        text-align: left !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+        white-space: nowrap !important; /* Tidak wrap */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    .modal-header .modal-back-btn {
+        margin-top: 0 !important; /* Hapus margin atas */
+        align-self: center !important;
+        order: 2 !important; /* Pastikan tetap di kanan */
+        flex-shrink: 0 !important; /* Tidak mengecil */
+        min-width: 100px !important; /* Lebar minimum */
+        padding: 10px 15px !important;
+        font-size: 0.9rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .modal-header::after {
+        left: 25px !important;
+        right: 25px !important;
+        bottom: 10px !important;
+    }
+    
+    .nav-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .left { left: 20px; }
+    .right { right: 20px; }
+    
+    .view-section {
+        padding: 80px 20px;
+    }
+    
+    .view-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .aspect-card, .data-card {
+        width: 200px;
+        height: 300px;
+    }
+
+    .data-card {
+        height: clamp(
+            200px,
+            32vh,
+            300px
+        );
+    }
+    
+    .menu-utama-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .region-display {
+        font-size: 1.5rem;
+        right: 20px;
+        top: 20px;
+    }
+    
+    #modal-overlay .aspect-grid {
+        gap: 20px; /* Jarak lebih kecil di mobile */
+        padding: 15px;
+    }
+    
+    .aspect-card {
+        width: clamp(150px, 40vw, 200px);
+        height: clamp(200px, 30vh, 280px);
+    }
+    
+    .aspect-card .aspect-label {
+        font-size: 0.95rem;
+        padding: 8px 0;
+    }
+}
+
+/* Untuk layar sangat kecil (mobile portrait) */
+@media (max-width: 480px) {
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-btn, .nav-btn.wide-btn {
+        width: 90%;
+        max-width: none;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .left { left: 10px; }
+    .right { right: 10px; }
+    
+    .view-section {
+        padding: 60px 15px;
+    }
+    
+    #view-2, #view-3 {
+        padding-top: 80px;
+        padding-bottom: 0;
+    }
+
+    
+
+    .aspect-grid button {
+        height: 80px;
+        font-size: 14px;
+    }
+
+    #aspect-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .aspect-card {
+        max-width: 180px;
+    }
+}
+
+#modal-overlay .modal-body {
+  padding-top: 0;
+}
+
+#modal-overlay.about-us-active .modal-body {
+  padding-top: 80px;
+}
+
+/* ================================================================
+   FIX FINAL: ANIMASI & HOVER SPESIFIK (NO RIPPLE GLOBAL)
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   TAMPILAN 2 (ASPEK): ANIMASI & HOVER PER REGION
+   ---------------------------------------------------------------- */
+
+/* --- BALI (3D Parallax & Tilt) --- */
+.anim-parallax { animation: parallaxIn 0.8s ease-out backwards; animation-delay: calc(var(--i) * 0.1s); }
+.hover-tilt:hover { transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.02); box-shadow: -10px 10px 20px rgba(0,255,255,0.3); border-color: #00FFFF; }
+@keyframes parallaxIn { from { opacity:0; transform: perspective(1000px) translateZ(-100px); } to { opacity:1; transform: translateZ(0); } }
+
+/* --- BAUBAU (Golden Swirl & Pulse) --- */
+.anim-swirl { animation: swirlIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; animation-delay: calc(var(--i) * 0.1s); }
+.hover-pulse:hover { animation: goldPulse 1.5s infinite; border-color: #FFD700; }
+@keyframes swirlIn { from { opacity:0; transform: rotate(-45deg) scale(0.5); } to { opacity:1; transform: rotate(0) scale(1); } }
+@keyframes goldPulse { 0% { box-shadow: 0 0 5px #FFD700; } 50% { box-shadow: 0 0 20px #FFD700; transform: scale(1.02); } 100% { box-shadow: 0 0 5px #FFD700; transform: scale(1); } }
+
+/* --- MENTAWAI (Nature Cascade & Breath) --- */
+.anim-cascade { animation: cascadeDown 0.8s ease-out backwards; animation-delay: calc(var(--i) * 0.1s); }
+.hover-breath:hover { animation: breathing 3s ease-in-out infinite; border-color: #39FF14; box-shadow: 0 0 15px #39FF14; }
+@keyframes cascadeDown { from { opacity:0; transform: translateY(-50px); } to { opacity:1; transform: translateY(0); } }
+@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+
+/* --- SULSEL (Sail Glide & Wind) --- */
+.anim-sail { animation: sailIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(var(--i) * 0.1s); }
+.hover-wind:hover { transform: skewX(-3deg) translateX(5px); box-shadow: 8px 8px 0px rgba(139,69,19,0.5); border-color: #8B4513; }
+@keyframes sailIn { from { opacity:0; transform: translateX(-50px) skewX(10deg); } to { opacity:1; transform: translateX(0) skewX(0); } }
+
+/* --- PAPUA (Mystical Fog & Aurora) --- */
+.anim-fog { animation: fogReveal 1.2s ease-in backwards; animation-delay: calc(var(--i) * 0.2s); }
+.hover-aurora:hover { box-shadow: 0 0 15px #A020F0, 0 0 30px #00FFFF; border-color: rgba(255,255,255,0.9); transition: box-shadow 0.5s ease; }
+@keyframes fogReveal { from { opacity:0; filter: blur(20px); transform: scale(1.1); } to { opacity:1; filter: blur(0); transform: scale(1); } }
+
+
+/* ----------------------------------------------------------------
+   TAMPILAN 3 (DATA LIST): HOVER BEDA WARNA & CINEMATIC (NO POP-OUT)
+   ---------------------------------------------------------------- */
+
+/* Base Style: Smooth Transition */
+.data-card {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-left: 3px solid transparent; 
+}
+
+/* Animasi Masuk: Smooth Slide (Default) */
+.anim-slide-smooth { animation: slideUpSmooth 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(var(--i) * 0.1s); }
+@keyframes slideUpSmooth { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Animasi Masuk: Flag Wave (Khusus Indo) */
+.anim-flag { animation: flagWaveIn 1s ease-out backwards; animation-delay: calc(var(--i) * 0.1s); transform-origin: top left; }
+@keyframes flagWaveIn { 0% { opacity:0; transform: rotateX(-90deg); } 100% { opacity:1; transform: rotateX(0); } }
+
+/* --- HOVER VARIATIONS (WARNA BEDA, LOGIC SAMA: HALUS, NO POP-OUT) --- */
+
+/* 1. INDONESIA: Red Glow & Border (Flag Spirit) */
+.data-card.region-indo:hover {
+    background: linear-gradient(90deg, rgba(255,0,0,0.15), transparent);
+    border-left: 6px solid #FF0000;
+    box-shadow: 5px 0 25px rgba(255, 0, 0, 0.3);
+    transform: translateX(6px); /* Geser kanan halus */
+}
+
+/* 2. BALI: Cyan Mystic Glow */
+.data-card.region-bali:hover {
+    background: rgba(0, 255, 255, 0.05);
+    border-color: #00FFFF; /* Border nyala halus */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+    transform: translateY(-4px); /* Angkat halus */
+}
+
+/* 3. BAUBAU: Golden Royal Shadow */
+.data-card.region-baubau:hover {
+    background: linear-gradient(to bottom, rgba(255, 215, 0, 0.1), transparent);
+    border-bottom: 3px solid #FFD700;
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+/* 4. MENTAWAI: Green Forest Depth */
+.data-card.region-mentawai:hover {
+    background: rgba(57, 255, 20, 0.05);
+    border-left: 4px solid #39FF14;
+    box-shadow: -5px 5px 20px rgba(0, 50, 0, 0.5); /* Shadow gelap dalam */
+    transform: translateX(4px);
+}
+
+/* 5. SULSEL: Wood/Brown Elegant */
+.data-card.region-sulsel:hover {
+    background: rgba(139, 69, 19, 0.1);
+    border-left: 5px solid #8B4513;
+    box-shadow: 5px 5px 15px rgba(139, 69, 19, 0.3);
+    transform: skewX(-1deg) translateX(4px); /* Miring halus */
+}
+
+/* 6. PAPUA: Purple Neon Vibe */
+.data-card.region-papua:hover {
+    background: linear-gradient(90deg, rgba(160, 32, 240, 0.15), transparent);
+    border-left: 4px solid #A020F0;
+    box-shadow: 0 0 15px #A020F0, 0 0 30px #4B0082;
+    transform: translateX(4px);
+}
+
+/* =========================================
+   ANIMASI TAMPILAN 2 (MASUK & KELUAR)
+   Paste ini di bagian paling bawah style.css
+   ========================================= */
+
+/* --- 1. BALI (Parallax & Holy Vanish) --- */
+/* Masuk */
+.aspect-card.anim-parallax {
+    animation: baliEnter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+@keyframes baliEnter {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Keluar (Saat diklik) */
+.aspect-container.exit-bali .aspect-card {
+    animation: baliExit 0.6s ease-in forwards;
+    animation-delay: calc(var(--i) * 0.05s); /* Keluar berurutan cepat */
+}
+@keyframes baliExit {
+    to { opacity: 0; transform: rotateY(90deg) scale(0.8); filter: brightness(2); }
+}
+
+
+/* --- 2. BAU BAU (Swirl/Vortex) --- */
+/* Masuk */
+.aspect-card.anim-swirl {
+    animation: baubauEnter 0.8s ease-out backwards;
+    animation-delay: calc(var(--i) * 0.15s);
+}
+@keyframes baubauEnter {
+    from { opacity: 0; transform: rotate(-30deg) translateX(-50px); }
+    to { opacity: 1; transform: rotate(0) translateX(0); }
+}
+
+/* Keluar (Saat diklik - Efek tersedot) */
+.aspect-container.exit-baubau .aspect-card {
+    animation: baubauExit 0.7s ease-in-out forwards;
+}
+@keyframes baubauExit {
+    to { opacity: 0; transform: scale(0) rotate(360deg); }
+}
+
+
+/* --- 3. MENTAWAI (Cascade/Nature Drop) --- */
+/* Masuk */
+.aspect-card.anim-cascade {
+    animation: mentawaiEnter 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+    animation-delay: calc(var(--i) * 0.2s);
+}
+@keyframes mentawaiEnter {
+    from { opacity: 0; transform: translateY(-100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keluar (Saat diklik - Jatuh ke bawah) */
+.aspect-container.exit-mentawai .aspect-card {
+    animation: mentawaiExit 0.6s ease-in forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+@keyframes mentawaiExit {
+    to { opacity: 0; transform: translateY(150px) scale(0.9); }
+}
+
+
+/* --- 4. SULSEL (Sail/Phinisi Move) --- */
+/* Masuk */
+.aspect-card.anim-sail {
+    animation: sulselEnter 0.9s ease-out backwards;
+    animation-delay: calc(var(--i) * 0.15s);
+}
+@keyframes sulselEnter {
+    from { opacity: 0; transform: translateX(100px) skewX(-10deg); }
+    to { opacity: 1; transform: translateX(0) skewX(0); }
+}
+
+/* Keluar (Saat diklik - Berlayar pergi) */
+.aspect-container.exit-sulsel .aspect-card {
+    animation: sulselExit 0.6s ease-in forwards;
+}
+@keyframes sulselExit {
+    to { opacity: 0; transform: translateX(-100vw) skewX(20deg); }
+}
+
+
+/* --- 5. PAPUA (Mist/Fog Dissolve) --- */
+/* Masuk */
+.aspect-card.anim-fog {
+    animation: papuaEnter 1.2s ease backwards;
+    animation-delay: calc(var(--i) * 0.2s);
+}
+@keyframes papuaEnter {
+    from { opacity: 0; filter: blur(10px); transform: scale(1.1); }
+    to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* Keluar (Saat diklik - Menguap jadi kabut) */
+.aspect-container.exit-papua .aspect-card {
+    animation: papuaExit 0.7s ease-out forwards;
+}
+@keyframes papuaExit {
+    to { opacity: 0; filter: blur(20px); transform: scale(1.5); }
+}
+
+
+/* --- TRANSISI HALUS MASUK KE VIEW 3 --- */
+.page-enter-smooth .data-card {
+    animation: pageSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i) * 0.1s + 0.3s); /* Delay dikit biar view 2 kelar dulu */
+}
+
+@keyframes pageSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}

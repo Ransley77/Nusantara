@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Nusantara Cinematic</title>
+    <link rel="icon" type="image/webp" href="icon.webp">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+    <!-- Logo Audio Utama -->
+    <div id="sound-toggle" onclick="toggleSound()">
+        <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+    </div>
+
+    <div id="intro-layer">
+        <video id="intro-vid" muted playsinline>
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+        <div id="intro-overlay"></div>
+        
+        <div id="intro-content">
+            <h1 class="nusantara-text">NUSANTARA</h1>
+            <p>EXPLORE INDONESIA</p>
+            
+            <button id="btn-jelajah" onclick="masukWeb()">
+                <span class="btn-fill"></span>
+                <span class="btn-text">JELAJAH</span>
+            </button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop></audio>
+
+    <div id="main-bg-layer">
+        <video id="bg-video" autoplay loop muted playsinline></video>
+        <div id="bg-image"></div>
+    </div>
+
+    <!-- DARK OVERLAY (GELAP VIEW 1) -->
+    <div id="dark-overlay"></div>
+
+    <!-- BLUR OVERLAY (VIEW 2–4) -->
+    <div class="bg-overlay"></div>
+
+    <header id="main-header">
+        <button id="menu-utama-global" class="menu-utama-btn" onclick="kembaliKeView1()">
+            MENU UTAMA
+        </button>
+        <div class="hamburger-menu" onclick="bukaSidebar()">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+        <div class="region-display" id="region-title-top">INDONESIA</div>
+    </header>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h2 id="sidebar-title">MENU</h2>
+            <button onclick="tutupSidebar()">✕</button>
+        </div>
+
+        <ul class="sidebar-menu" id="sidebar-list">
+            <li>HOME</li>
+            <li>ABOUT US</li>
+            <li>CONTACT US</li>
+        </ul>
+    </div>
+    <div id="sidebar-overlay" onclick="tutupSidebar()"></div>
+    <div id="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="modal-back-btn nav-btn wide-btn no-hover" onclick="closeModal()">
+                    KEMBALI
+                </button>
+            </div>
+            <div class="modal-body" id="modal-content">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="view-1" class="view-section">
+        <button class="nav-arrow left" onclick="gantiDaerah(-1)">❮</button>
+        
+        <div class="main-card" onclick="masukTampilan2()">
+            <div class="card-visual">
+                <img id="cover-img" class="cover-img" src="" alt="Cover">
+            </div>
+            <div class="card-text">
+                <h1 id="cover-title">JUDUL</h1>
+                <div class="subtitle-box">
+                    <p id="cover-subtitle">SUBTITLE</p>
+                    <div class="colored-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="nav-arrow right" onclick="gantiDaerah(1)">❯</button>
+    </div>
+
+    <div id="view-2" class="view-section">
+        <h2 class="view-title">ASPEK <span id="view-2-region"></span></h2>
+        <div class="aspect-grid" id="aspect-container"></div>
+        <div class="nav-buttons">
+            <button class="nav-btn wide-btn" onclick="kembaliKeView1()">KEMBALI</button>
+        </div>
+    </div>
+
+    <div id="view-3" class="view-section">
+        <h2 class="view-title" id="view-3-title">DATA</h2>
+        <div class="data-list-container" id="data-list-container">
+            <!-- Item akan diisi lewat JS -->
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-btn wide-btn" onclick="kembaliKeView2()">KEMBALI</button>
+        </div>
+    </div>
+
+    <div id="view-4" class="view-section glass-mode">
+        <div class="detail-layout">
+            <div class="detail-left">
+                <img id="detail-img" src="" alt="Detail Gambar">
+            </div>
+            <div class="detail-right">
+                <div class="text-content">
+                    <h2 id="detail-title">JUDUL DATA</h2>
+                    <p id="detail-desc">Deskripsi data...</p>
+                </div>
+                <button class="nav-btn back-btn full-btn" onclick="kembaliKeView3()">KEMBALI</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="edit.js" defer></script>
+</body>
+</html>
