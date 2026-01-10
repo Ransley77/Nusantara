@@ -53,40 +53,45 @@ const db = [
         coverImage: 'BBalisatu.jpg',
         backgrounds: {
             view1: { type: 'image', src: 'BBalisatu.jpg' },
-            view2: { type: 'image', src: 'BBalisatu.jpg' },
-            view34: { type: 'image', src: 'BBalisatu.jpg' }
+            view2: { type: 'image', src: 'ok.jpg' },
+            view34: { type: 'image', src: 'oke.jpg' }
         },
-        audio: 'kebyar.mp3', 
-        audioView: 'kebyar.mp3',
+        audio: 'balisatu.mpeg', 
+        audioView: 'balidua.mpeg',
         animClass: 'reveal-bali',
         type: 'normal',
         aspects: ['SEJARAH', 'BAHASA', 'BUDAYA', 'AKSARA'],
         aspectImages: {
-            'SEJARAH': 'BBalisatu.jpg',
-            'BAHASA': 'BBalisatu.jpg',
-            'BUDAYA': 'BBalisatu.jpg',
-            'AKSARA': 'BBalisatu.jpg'
+            'SEJARAH': 'sejarahbali.jpg',
+            'BAHASA': 'bahasabali.jpg',
+            'BUDAYA': 'puputanklungkung.jpeg',
+            'AKSARA': 'aksarabali.jpg'
         },
         details: {
             'SEJARAH': [
-                { title: "Walidwipa & Jejak Awal", img: "BBalisatu.jpg", desc: "Nama Bali berasal dari kata Sanskerta Wali yang berarti persembahan suci. Penyebutan tertua terdapat pada Prasasti Blanjong (913 M) di Sanur yang menyebut Bali sebagai Walidwipa. Masuknya Hindu dipelopori oleh Rsi Markandeya pada abad ke-8." },
-                { title: "Warisan Majapahit", img: "BBalisatu.jpg", desc: "Penaklukan Bali oleh Majapahit pada tahun 1343 M membawa pengaruh besar. Bangsawan dan pendeta dari Jawa bermigrasi ke Bali setelah runtuhnya Majapahit dan meleburkan Hindu Siwa-Buddha dengan kepercayaan lokal." },
-                { title: "Puputan Badung & Klungkung", img: "BBalisatu.jpg", desc: "Puputan adalah perang kehormatan hingga titik darah terakhir. Puputan Badung (1906) dan Puputan Klungkung (1908) menjadi simbol perlawanan rakyat Bali terhadap kolonialisme Belanda." },
-                { title: "Dari Agraris ke Pariwisata", img: "BBalisatu.jpg", desc: "Bali resmi menjadi provinsi pada tahun 1958. Sejak 1970-an, Bali bertransformasi dari masyarakat agraris menjadi pusat pariwisata budaya dunia tanpa meninggalkan nilai adat dan spiritual." }
+                { title: "Walidwipa & Jejak Awal Peradaban", img: "purabesakih.jpeg", desc: "Nama Bali berasal dari kata Sanskerta “Wali” yang berarti persembahan suci. Penyebutan tertua terdapat pada Prasasti Blanjong (913 M) di Sanur yang menyebut Bali sebagai Walidwipa. Masuknya Hindu dipelopori oleh Rsi Markandeya pada abad ke-8 dengan konsep Panca Datu yang menjadi dasar berdirinya Pura Besakih." },
+                { title: "Warisan Majapahit & Identitas Bali", img: "warisanmajapahit.jpeg", desc: "Penaklukan Bali oleh Majapahit pada tahun 1343 M membawa pengaruh besar. Bangsawan dan pendeta dari Jawa bermigrasi ke Bali setelah runtuhnya Majapahit dan meleburkan Hindu Siwa-Buddha dengan kepercayaan lokal, membentuk Hindu Dharma Bali yang khas dan bertahan hingga kini." },
+                { title: "Puputan Badung & Klungkung", img: "puputanbadung.jpeg", desc: "Puputan adalah perang kehormatan hingga titik darah terakhir. Puputan Badung (1906) dan Puputan Klungkung (1908) menjadi simbol perlawanan rakyat Bali terhadap kolonialisme Belanda." },
+                { title: "Dari Agraris ke Pariwisata Budaya", img: "agrarisbudayabali.jpg", desc: "Bali resmi menjadi provinsi pada tahun 1958. Sejak 1970-an, Bali bertransformasi dari masyarakat agraris menjadi pusat pariwisata budaya dunia tanpa meninggalkan nilai adat dan spiritual." }
             ],
             'BAHASA': [
-                { title: "Bahasa Alus", img: "BBalisatu.jpg", desc: "Digunakan untuk berbicara kepada pendeta, orang tua, dan tokoh adat sebagai bentuk penghormatan." },
-                { title: "Bahasa Madya", img: "BBalisatu.jpg", desc: "Digunakan dalam percakapan sopan sehari-hari antar sesama." },
-                { title: "Bahasa Kasar", img: "BBalisatu.jpg", desc: "Digunakan dalam kondisi marah atau kepada hewan, mencerminkan ekspresi emosi manusia." }
+                { title: "Etika Bicara dalam Bahasa Bali", img: "etikabicarabali.jpg", desc: "Bahasa Bali memiliki sistem tingkatan yang disebut Sor Singgih, mencerminkan etika sosial masyarakat." },
+                { title: "Bahasa Alus", img: "bahasaalusbali.png", desc: "Digunakan untuk berbicara kepada pendeta, orang tua, dan tokoh adat sebagai bentuk penghormatan." },
+                { title: "Bahasa Madya", img: "bahasamadyabali.png", desc: "Digunakan dalam percakapan sopan sehari-hari antar sesama." },
+                { title: "Bahasa Kasar", img: "bahasakasarbali.png", desc: "Digunakan dalam kondisi marah atau kepada hewan, mencerminkan ekspresi emosi manusia." }
             ],
             'BUDAYA': [
-                { title: "Hari Nyepi", img: "tari-kecak.webp", desc: "Hari hening total selama 24 jam untuk introspeksi diri dan pemulihan alam (Mulatsarira)." },
-                { title: "Ngaben", img: "tari-kecak.webp", desc: "Upacara kremasi untuk mempercepat kembalinya unsur tubuh (Panca Maha Bhuta) ke alam semesta." },
-                { title: "Ogoh-Ogoh", img: "tari-kecak.webp", desc: "Patung raksasa simbol sifat buruk manusia (Bhuta Kala) yang diarak dan dibakar sebelum Nyepi." }
+                { title: "Hari Nyepi", img: "nyepi.jpeg", desc: "Hari hening total selama 24 jam untuk introspeksi diri dan pemulihan alam (Mulatsarira)." },
+                { title: "Ngaben", img: "ngaben.jpeg", desc: "Upacara kremasi untuk mempercepat kembalinya unsur tubuh (Panca Maha Bhuta) ke alam semesta." },
+                { title: "Ogoh-Ogoh", img: "ogohogohbali.jpg", desc: "Patung raksasa simbol sifat buruk manusia (Bhuta Kala) yang diarak dan dibakar sebelum Nyepi." },
+                { title: "Metatah (Potong Gigi)", img: "metatah.jpeg", desc: "Ritual pendewasaan untuk menghilangkan enam sifat buruk manusia (Sad Ripu)." },
+                { title: "Tari Kecak", img: "tari-kecak.webp", desc: "Tarian tradisional Bali yang ditampilkan oleh sekelompok pria yang duduk melingkar sambil meneriakkan “cak, cak, cak” secara ritmis. Tarian ini menceritakan kisah Ramayana, terutama bagian perjuangan Rama melawan Rahwana. Tari Kecak tidak diiringi alat musik, melainkan menggunakan suara manusia sebagai pengiring, dan biasanya dipentaskan pada sore atau malam hari dengan suasana yang dramatis." },
             ],
             'AKSARA': [
-                { title: "Aksara Bali", img: "BBalisatu.jpg", desc: "Memiliki 18 huruf utama (Wreastra) dan dianggap memiliki nilai spiritual." },
-                { title: "Media Lontar", img: "BBalisatu.jpg", desc: "Ditulis di daun lontar menggunakan pisau pengrupak dan dihitamkan dengan kemiri bakar." }
+                { title: "Aksara Bali (Hanacaraka)", img: "aksarahanacarakabali.jpg", desc: "Memiliki 18 huruf utama (Wreastra) dan dianggap memiliki nilai spiritual." },
+                { title: "Media Lontar", img: "medialontarbali.jpg", desc: "Ditulis di daun lontar menggunakan pisau pengrupak dan dihitamkan dengan kemiri bakar." },
+                { title: "Aksara Modre", img: "aksaramodrebali.jpg", desc: "Aksara sakral yang digunakan untuk mantra, jimat, dan pengobatan spiritual." },
+                { title: "Fungsi Sakral Aksara", img: "fungsisakralaksarabali.jpg", desc: "Aksara Bali merupakan bagian dari ritual keagamaan dan adat, bukan sekadar tulisan." }
             ]
         }
     },
@@ -96,40 +101,47 @@ const db = [
         subtitle: 'NEGERI KHALIFATUL KHAMIS',
         color: '#FFD700',
         hoverColor: '#FFD700',
-        coverImage: 'gmbar-tmbhn.jpg',
+        coverImage: 'coverbaubau.jpg',
         backgrounds: {
-            view1: { type: 'image', src: 'gmbar-tmbhn.jpg' },
-            view2: { type: 'image', src: 'gmbar-tmbhn.jpg' },
-            view34: { type: 'image', src: 'gmbar-tmbhn.jpg' }
+            view1: { type: 'image', src: 'coverbaubau.jpg' },
+            view2: { type: 'image', src: 'Bbaubau1.jpg' },
+            view34: { type: 'image', src: 'Bbaubau2.jpg' }
         },
         audio: 'baubausatu.mpeg',
-        audioView: 'baubaudua.mp3',
+        audioView: 'baubaudua.mpeg',
         animClass: 'reveal-baubau',
         type: 'normal',
         aspects: ['SEJARAH', 'BAHASA', 'BUDAYA', 'AKSARA'],
         aspectImages: {
-            'SEJARAH': 'gmbar-tmbhn.jpg',
-            'BAHASA': 'gmbar-tmbhn.jpg',
-            'BUDAYA': 'gmbar-tmbhn.jpg',
-            'AKSARA': 'gmbar-tmbhn.jpg'
+            'SEJARAH': 'sejarahbaubau.jpg',
+            'BAHASA': 'bahasabaubau.jpg',
+            'BUDAYA': 'budayabaubau.jpeg',
+            'AKSARA': 'aksarabaubau.jpg'
         },
         details: {
             'SEJARAH': [
-                { title: "Kesultanan Buton", img: "gmbar-tmbhn.jpg", desc: "Buton berkembang dari kerajaan Hindu-Buddha menjadi kesultanan Islam yang kuat di jalur perdagangan Nusantara." },
-                { title: "Benteng Keraton", img: "gmbar-tmbhn.jpg", desc: "Benteng terluas di dunia (23,375 hektar) dan diakui Guinness World Records." },
-                { title: "Demokrasi Siolimbona", img: "gmbar-tmbhn.jpg", desc: "Sultan dipilih oleh dewan rakyat (Siolimbona), bukan otomatis berdasarkan keturunan." }
+                { title: "Benteng Terluas di Dunia", img: "bentengterluas.jpg", desc: "Memiliki Benteng Keraton Buton yang diakui Guinness World Records sebagai benteng terluas (23,375 hektar)." },
+                { title: "Kedaulatan Unik", img: "kedaulatanunikbaubau.jpg", desc: "Satu-satunya kerajaan di Indonesia yang tidak pernah dijajah secara fisik oleh Belanda (status sebagai sekutu/protektorat)." },
+                { title: "Sistem Demokrasi", img: "sistemdemokrasibaubau.jpg", desc: "Sultan Buton dipilih melalui proses seleksi ketat oleh dewan rakyat (Siolimbona), bukan hanya berdasarkan garis keturunan." },
+                { title: "Transisi Agama", img: "agamabaubau.jpeg", desc: "Bermula dari kerajaan Hindu-Buddha hingga menjadi kesultanan Islam yang kuat di jalur perdagangan rempah." }
             ],
             'BAHASA': [
-                { title: "Bahasa Wolio", img: "gmbar-tmbhn.jpg", desc: "Bahasa resmi pemerintahan dan sastra Kesultanan Buton." },
-                { title: "Bahasa Cia-Cia", img: "gmbar-tmbhn.jpg", desc: "Bahasa lokal yang menggunakan huruf Hangul Korea untuk pelestarian fonetik." }
+                { title: "Bahasa Wolio", img: "bahasawoliobaubau.jpg", desc: "Bahasa resmi kesultanan yang digunakan dalam komunikasi pemerintahan dan sastra." },
+                { title: "Bahasa Cia-Cia", img: "bahasaciaciabaubau.png", desc: "Bahasa yang unik karena secara resmi menggunakan huruf Hangul (Korea) untuk penulisannya." },
+                { title: "Bahasa Pancana", img: "bahasapancana.jpeg", desc: "Digunakan oleh masyarakat di pesisir tengah Pulau Buton." },
+                { title: "Bahasa Muna", img: "bahasamunabaubau.jpg", desc: "Meskipun serumpun, memiliki dialek berbeda yang digunakan di wilayah otoritas Buton." }
             ],
             'BUDAYA': [
-                { title: "Pakande-kandea", img: "gmbar-tmbhn.jpg", desc: "Tradisi makan bersama sebagai simbol rasa syukur dan kebersamaan." },
-                { title: "Tari Linda", img: "gmbar-tmbhn.jpg", desc: "Tarian yang melambangkan transisi kedewasaan perempuan." }
+                { title: "Tradisi Pakande-kandea", img: "pakandekandeabaubau.jpg", desc: "Perjamuan makan bersama dalam jumlah besar sebagai bentuk rasa syukur dan penyambutan tamu." },
+                { title: "Ritual Pedhole-dhole", img: "pedholedholebaubau.jpeg", desc: "Upacara tradisional untuk anak-anak (imunisasi batin) agar terhindar dari penyakit dan marabahaya." },
+                { title: "Tari Linda", img: "tarilinda.jpg", desc: "Tarian tradisional yang melambangkan proses transisi seorang gadis menjadi dewasa (pingitan)." },
+                { title: "Kearifan Lingkungan (Kaombo)", img: "kaombo.jpg", desc: "Sistem pelarangan pengambilan hasil alam di wilayah tertentu pada waktu tertentu untuk menjaga ekosistem." }
             ],
             'AKSARA': [
-                { title: "Aksara Wolio", img: "gmbar-tmbhn.jpg", desc: "Modifikasi huruf Arab yang disesuaikan dengan bunyi bahasa lokal." },
-                { title: "Huruf Hangul", img: "gmbar-tmbhn.jpg", desc: "Digunakan oleh suku Cia-Cia untuk pelestarian bahasa." }
+                { title: "Aksara Wolio (Buri Wolio)", img: "buriwolio.jpg", desc: "Modifikasi huruf Arab yang disesuaikan dengan bunyi bahasa lokal (mirip huruf Pegon di Jawa)." },
+                { title: "Huruf Hangul", img: "hangulbaubau.jpg", desc: "Digunakan secara khusus oleh suku Cia-Cia karena kecocokan fonetik untuk melestarikan bahasa lisan mereka." },
+                { title: "Naskah Kuno", img: "naskahkunobaubau.png", desc: "Banyak dokumen sejarah ditulis di atas kertas Eropa atau daun lontar menggunakan tinta alami." },
+                { title: "Fungsi Diplomasi", img: "diplomasibaubau.jpg", desc: "Aksara ini dahulu digunakan untuk surat-menyurat resmi antar kerajaan di Nusantara." }
             ]
         }
     },
@@ -158,20 +170,28 @@ const db = [
         },
         details: {
             'SEJARAH': [
-                { title: "Suku Mentawai", img: "ok.jpg", desc: "Salah satu masyarakat adat tertua yang hidup terisolasi dan menjaga budaya asli." },
-                { title: "Sistem Uma", img: "ok.jpg", desc: "Rumah adat sekaligus pusat kehidupan sosial dan ritual." }
+                { title: "Suku Mentawai", img: "sukumentawai.jpeg", desc: "Salah satu masyarakat adat tertua yang hidup terisolasi dan menjaga budaya asli." },
+                { title: "Sistem Uma", img: "uma.jpeg", desc: "Rumah adat sekaligus pusat kehidupan sosial dan ritual." },
+                { title: "Kontak Dunia Luar", img: "kontakdunialuar.jpeg", desc: "Masuknya misionaris dan kolonial membawa perubahan sosial besar." },
+                { title: "Pelestarian Budaya", img: "melestarikanmentawai.jpeg", desc: "Upaya mempertahankan adat di tengah modernisasi." }
             ],
             'BAHASA': [
-                { title: "Bahasa Mentawai", img: "ok.jpg", desc: "Bahasa Austronesia yang digunakan dalam kehidupan sehari-hari dan ritual." },
-                { title: "Bahasa Ritual", img: "ok.jpg", desc: "Digunakan dalam upacara adat dan mantra." }
+                { title: "Bahasa Mentawai", img: "bahasamentawai.png", desc: "Bahasa Austronesia yang digunakan dalam kehidupan sehari-hari dan ritual." },
+                { title: "Dialek Lokal", img: "dialeklokal.jpg", desc: "Memiliki variasi antar pulau dan wilayah." },
+                { title: "Bahasa Ritual", img: "bahasaritual.jpeg", desc: "Digunakan dalam upacara adat dan mantra." },
+                { title: "Ancaman Kepunahan", img: "ancamanpunah.jpg", desc: "Modernisasi mengancam keberlangsungan bahasa Mentawai." }
             ],
             'BUDAYA': [
-                { title: "Tato Mentawai", img: "ok.jpg", desc: "Simbol identitas, status sosial, dan hubungan manusia dengan alam." },
-                { title: "Sikerei", img: "ok.jpg", desc: "Tabib dan pemimpin spiritual dalam masyarakat Mentawai." }
+                { title: "Tato Mentawai", img: "tatomentawai.jpeg", desc: "Simbol identitas, status sosial, dan hubungan manusia dengan alam." },
+                { title: "Sikerei", img: "sikereimentawai.jpeg", desc: "Tabib dan pemimpin spiritual dalam masyarakat Mentawai." },
+                { title: "Berburu Tradisional", img: "berburumentawai.jpeg", desc: "Dilakukan dengan aturan adat ketat demi keseimbangan alam." },
+                { title: "Arat Sabulungan", img: "aratsabulungan.jpeg", desc: "Sistem kepercayaan yang menghormati roh alam dan leluhur." }
             ],
             'AKSARA': [
-                { title: "Tradisi Lisan", img: "ok.jpg", desc: "Budaya Mentawai tidak mengenal aksara tulis tradisional." },
-                { title: "Simbol Tato", img: "ok.jpg", desc: "Motif tato berfungsi sebagai bahasa simbolik tubuh." }
+                { title: "Tradisi Lisan", img: "tradisilisanmentawai.jpeg", desc: "Budaya Mentawai tidak mengenal aksara tulis tradisional." },
+                { title: "Simbol Tato", img: "simboltatomentawai.jpg", desc: "Motif tato berfungsi sebagai bahasa simbolik tubuh." },
+                { title: "Ukiran dan Ornamen", img: "ukiranornamenmentawai.jpeg", desc: "Digunakan sebagai media ekspresi budaya dan spiritual." },
+                { title: "Dokumentasi Modern", img: "modernaksaramentawai.jpg", desc: "Bahasa dan budaya Mentawai mulai ditranskripsikan oleh peneliti." }
             ]
         }
     },
@@ -200,74 +220,76 @@ const db = [
         },
         details: {
             'SEJARAH': [
-                { title: "Masa Prasejarah", img: "sejarahsulsel1.jpg", desc: "Sulawesi Selatan memiliki sejarah panjang dengan kerajaan-kerajaan besar seperti Gowa, Tallo, Bone, dan Wajo yang memainkan peran penting dalam sejarah Nusantara." },
-                { title: "Awal Kerajaan Lokal (Abad ke-13-15)", img: "sejarahsulsel2.jpg", desc: "Kerajaan maritim terkuat di Indonesia Timur pada abad ke-16, dikenal dengan Benteng Somba Opu dan kekuatan armada lautnya." },
-                { title: "Islamisasi (Abad ke-16-17)", img: "sejarahsulsel3.jpg", desc: "Perang antara Kerajaan Gowa melawan VOC Belanda yang berlangsung dari 1666-1669, mengakibatkan jatuhnya Benteng Somba Opu." },
-                { title: "Perlawanan terhadap Kolonial (Abad ke-17 – Awal Abad ke-20)", img: "sejarahsulsel4.jpg", desc: "Perang antara Kerajaan Gowa melawan VOC Belanda yang berlangsung dari 1666-1669, mengakibatkan jatuhnya Benteng Somba Opu." },
-                { title: "Perjuangan Kemerdekaan & Masa Setelahnya", img: "sejarahsulsel5.jpg", desc: "Perang antara Kerajaan Gowa melawan VOC Belanda yang berlangsung dari 1666-1669, mengakibatkan jatuhnya Benteng Somba Opu." }
+                { title: "Masa Prasejarah", img: "sejarahsulsel1.jpg", desc: "Jejak manusia di Sulawesi Selatan sangat tua. Suku bangsa awal penghuni wilayah ini diperkirakan adalah keturunan dari migrasi rumpun Austronesia yang datang sekitar 3000-1500 SM. Di kawasan karst Maros–Pangkep ditemukan lukisan gua berusia puluhan ribu tahun—termasuk cap tangan dan gambar hewan—menjadikannya salah satu seni gua tertua di dunia. Budaya Megalitik dan tradisi pemakaman batu masih dapat ditemukan, terutama di wilayah Toraja, yang menjadi ciri khas periode ini. Ini menunjukkan wilayah ini sudah lama dihuni dan memiliki tradisi budaya awal yang kuat. Masyarakat awal hidup dari berburu dan mengumpulkan makanan sebelum beralih ke pertanian padi sawah sekitar abad ke-13, yang kemudian memicu terbentuknya struktur sosial yang lebih kompleks." },
+                { title: "Awal Kerajaan Lokal (Abad ke-13-15)", img: "sejarahsulsel2.jpg", desc: "Pada masa ini, muncul entitas politik yang disebut Tumanurung (sosok yang dianggap turun dari langit) yang menjadi cikal bakal kerajaan-kerajaan besar, terdiri dari, Kerajaan Luwu, Kerajaan Gowa-Tallo (Makassar), Kerajaan Bone (Bugis), dan Kerajaan Wajo dan Soppeng (Bugis). Kerajaan-kerajaan ini memiliki sistem pemerintahan adat yang tertata, hukum adat (ade’), dan tradisi pencatatan menggunakan aksara Lontara. Naskah besar La Galigo, salah satu epos terpanjang di dunia, lahir dari tradisi ini." },
+                { title: "Islamisasi (Abad ke-16-17)", img: "sejarahsulsel3.jpg", desc: "Islam masuk secara damai melalui perdagangan dan dakwah ulama Minangkabau yang dikenal sebagai Dato’ Tallua. Kerajaan Gowa–Tallo memeluk Islam pada awal abad ke-17, lalu berperan besar dalam menyebarkan Islam ke kerajaan Bugis lainnya. Islamisasi mengubah struktur politik, hukum, dan budaya, namun adat lokal tetap bertahan dan berpadu dengan ajaran Islam. Pada masa Sultan Hasanuddin, Kesultanan Gowa menjadi kekuatan maritim besar di Indonesia timur. Pelabuhan Makassar adalah pusat perdagangan internasional yang terbuka bagi semua bangsa. Hal ini memicu konflik dengan VOC Belanda yang ingin memonopoli perdagangan rempah." },
+                { title: "Perlawanan terhadap Kolonial (Abad ke-17 – Awal Abad ke-20)", img: "sejarahsulsel4.jpg", desc: "Konflik besar antara Sultan Hasanuddin (yang dijuluki Ayam Jantan dari Timur) melawan VOC yang dibantu oleh Arung Palakka dari Bone. Konflik besar terjadi dalam Perang Makassar, yang berakhir dengan kekalahan Gowa, Perjanjian Bongaya (1667), VOC mulai mendominasi politik dan perdagangan, dan Arung Palakka menjadi penguasa paling kuat di Sulawesi Selatan di bawah pengaruh VOC. Periode ini ditandai dengan persaingan internal antar kerajaan Bugis-Makassar. Namun, perlawanan rakyat Bugis–Makassar tidak pernah benar-benar padam. Kekalahan Gowa memaksa Sultan Hasanuddin menandatangani perjanjian yang membatasi kekuasaan Makassar dan memberi ruang besar bagi monopoli Belanda. Meskipun perlawanan gerilya terus berlanjut di berbagai daerah (termasuk oleh masyarakat Toraja dan Bugis lainnya), Belanda baru benar-benar menguasai seluruh wilayah Sulawesi Selatan secara administratif pada awal abad ke-20. Akibat konflik dan tekanan VOC, banyak orang Bugis bermigrasi ke Sumatera, Kalimantan, Semenanjung Malaya, dan Filipina selatan Diaspora ini menjadikan Bugis dikenal luas sebagai pelaut, pedagang, dan penguasa lokal di berbagai wilayah Nusantara. Belanda secara bertahap menguasai Sulawesi Selatan melalui perjanjian dan kekuatan militer. Pada masa pendudukan Jepang (1942–1945), rakyat mengalami kerja paksa dan kekurangan pangan, tetapi benih nasionalisme makin kuat." },
+                { title: "Perjuangan Kemerdekaan & Masa Setelahnya", img: "sejarahsulsel5.jpg", desc: "Setelah 1945, Sulawesi Selatan menjadi salah satu daerah dengan konflik pascakemerdekaan yang berat, salah satunya melalui perjuangan Andi Mappanyukki dan Andi Sultan Daeng Radja, termasuk perlawanan terhadap kembalinya Belanda, dan Peristiwa tragis pembantaian Westerling (1946–1947), yaitu masa kelam di mana terjadi pembantaian ribuan rakyat oleh pasukan khusus Belanda pimpinan Raymond Westerling Setelah pengakuan kedaulatan, Sulawesi Selatan berkembang menjadi pusat ekonomi dan pendidikan Indonesia timur, dengan Makassar sebagai kota utama. Sulawesi Selatan resmi menjadi provinsi bagian dari Negara Kesatuan Republik Indonesia (NKRI) pada tahun 1950, dengan Makassar sebagai ibu kotanya." }
             ],
             'BAHASA': [
-                { title: "Bahasa Makassar", img: "basamangkasara.png", desc: "Bahasa daerah yang digunakan oleh suku Makassar dengan aksara tradisional Lontara." },
-                { title: "Bahasa Bugis (Basa Ugi)", img: "basaugi.png", desc: "Bahasa dengan tradisi sastra lisan dan tulisan yang kaya, dikenal dengan Sureq (epik La Galigo)." },
-                { title: "Bahasa Toraja (Basa Taddek)", img: "basataddek.png", desc: "Bahasa dengan sistem pemanggilan kekerabatan yang kompleks dan digunakan dalam upacara adat." },
-                { title: "Bahasa Mandar (Basa Mandar)", img: "basamandar.png", desc: "Bahasa dengan sistem pemanggilan kekerabatan yang kompleks dan digunakan dalam upacara adat." }
+                { title: "Bahasa Makassar", img: "basamangkasara.png", desc: "Bahasa ini dituturkan oleh suku Makassar yang mendiami wilayah selatan Sulawesi Selatan, meliputi Kota Makassar, Kabupaten Gowa, Takalar, Jeneponto, Bantaeng, dan sebagian Maros serta Pangkep. Penutur terdiri dari 2,1 juta jiwa, mayoritas suku Makassar." },
+                { title: "Bahasa Bugis (Basa Ugi)", img: "basaugi.png", desc: "Bahasa Bugis adalah bahasa dengan jumlah penutur terbanyak di Sulawesi Selatan. Wilayah sebarannya meliputi Kabupaten Bone, Soppeng, Wajo, Sidrap, Pinrang, Barru, Parepare, hingga Sinjai. Penutur terdiri dari 5 juta jiwa." },
+                { title: "Bahasa Toraja (Basa Taddek)", img: "basataddek.png", desc: "Bahasa ini dituturkan oleh masyarakat di pegunungan bagian utara, terutama di Kabupaten Tana Toraja dan Toraja Utara. Penutur terdiri dari 1 juta jiwa, mayoritas Suku Toraja." },
+                { title: "Bahasa Mandar (Basa Mandar)", img: "basamandar.png", desc: "Meskipun saat ini Sulawesi Barat telah menjadi provinsi sendiri, secara historis dan kultural, bahasa Mandar tetap menjadi bagian integral dari keragaman linguistik di wilayah Celebes Selatan. Wilayah terdiri dari Kabupaten Polewali Mandar, Mamuju, Majene, dan Mamasa (sebagian) di Sulawesi Barat. Secara historis dan budaya masih sangat dekat dengan Sulawesi Selatan. Di Sulawesi Selatan sendiri, penutur Mandar banyak ditemukan di daerah pesisir utara. Penutur terdiri dari 500 ribu jiwa, mayoritas Suku Mandar." }
             ],
             'BUDAYA': [
-                { title: "Upacara Adat Rambu Solo' (Toraja)", img: "rambusolo.jpg", desc: "Rumah adat Toraja dengan atap melengkung seperti perahu, simbol status sosial dan pusat kehidupan adat." },
-                { title: "Tradisi Maritim & Perahu Phinisi", img: "kapalphinisi.jpg", desc: "Tarian khas Toraja yang biasanya ditampilkan dalam upacara Rambu Solo' (pemakaman)." },
-                { title: "Adat Pernikahan & Uang Panai'", img: "adatpernikahan.jpg", desc: "Ukiran khas Toraja dengan motif alam dan filosofi kehidupan yang dalam." },
-                { title: "Tari Pakarena", img: "taripakarena.jpg", desc: "Ukiran khas Toraja dengan motif alam dan filosofi kehidupan yang dalam." }
+                { title: "Upacara Adat Rambu Solo' (Toraja)", img: "rambusolo.jpg", desc: "Upacara pemakaman mewah yang bertujuan untuk mengantarkan arwah leluhur ke alam baka (Puya). Upacara ini melibatkan penyembelihan kerbau (terutama kerbau lumpur atau Tedong Bonga yang harganya sangat mahal). Kerbau (tedong) yang mahal (seperti tedong bonga) dan babi dikorbankan, diiringi tarian dan nyanyian. Jenazah disimpan di tongkonan (rumah adat) untuk waktu lama sebelum upacara. Mayat dapat diawetkan. Prosesi berlangsung beberapa hari dengan berbagai ritual seperti Ma'pasilaga Tedong (adu kerbau), Ma'badong (tarian melingkar), dan puncaknya adalah penguburan di tebing batu, liang batu, atau patane (kuburan batu)." },
+                { title: "Tradisi Maritim & Perahu Phinisi", img: "kapalphinisi.jpg", desc: "Orang Bugis–Makassar terkenal sebagai pelaut ulung dan perantau. Kapal Pinisi menjadi simbol kejayaan maritim. Perahu Phinisi merupakan mahakarya teknik perkapalan tradisional yang berasal dari Bulukumba. Menariknya, pembuatan kapal ini dilakukan tanpa cetakan biru dan menggunakan ritual khusus dalam setiap tahapannya. Kini, Phinisi telah diakui sebagai Warisan Budaya Takbenda oleh UNESCO." },
+                { title: "Adat Pernikahan & Uang Panai'", img: "adatpernikahan.jpg", desc: "Upacara pernikahan dikenal megah dan penuh simbol. Uang panai’ sebagai bentuk penghargaan kepada keluarga mempelai perempuan. Besarnya sering kali ditentukan oleh strata sosial, latar belakang pendidikan, atau prestasi sang wanita. Ini dianggap sebagai simbol penghargaan pria terhadap martabat wanita yang akan dinikahinya. Busana adat berwarna cerah dan sarat makna status sosial. Prosesnya panjang, mencerminkan kehormatan dan keseriusan pernikahan." },
+                { title: "Tari Pakarena", img: "taripakarena.jpg", desc: "Tarian khas Gowa/Makassar yang menggambarkan kelembutan dan kesabaran perempuan, namun tetap memiliki ketegasan. Ciri khasnya adalah gerakannya lembut, gemulai, dan lambat, melambangkan karakter perempuan Makassar yang patuh, setia, dan sopan. Penari tidak boleh membuka mata terlalu lebar dan kaki tidak diangkat tinggi. Diiringi oleh gendang (ganrang) dan seruling (puik-puik)." }
             ],
             'AKSARA': [
-                { title: "Aksara Lontara", img: "aksaralontara.jpg", desc: "Aksara tradisional Bugis-Makassar yang digunakan untuk menulis naskah-naskah kuno, sejarah, dan sastra." },
-                { title: "Aksara Jangan-Jangan (Lontara Kuno)", img: "aksarajanganjangan.jpg", desc: "Epik terpanjang di dunia yang ditulis dalam aksara Lontara, menceritakan asal-usul manusia dan alam semesta." },
-                { title: "Aksara Serang (Abjad Jawi Lokal)", img: "aksaraserang.jpeg", desc: "Epik terpanjang di dunia yang ditulis dalam aksara Lontara, menceritakan asal-usul manusia dan alam semesta." },
-                { title: "Lontara Bugis, Makassar, Mandar", img: "lontarabugismakassarmandar.jpg", desc: "Epik terpanjang di dunia yang ditulis dalam aksara Lontara, menceritakan asal-usul manusia dan alam semesta." }
+                { title: "Aksara Lontara", img: "aksaralontara.jpg", desc: "Paling dominan dan paling dikenal di Sulawesi Selatan. Digunakan oleh Bugis, Makassar, dan Mandar." },
+                { title: "Aksara Jangan-Jangan (Lontara Kuno)", img: "aksarajanganjangan.jpg", desc: "Sebelum Aksara Lontara yang kita kenal sekarang (Lontara Baru) menjadi standar, masyarakat Makassar menggunakan Aksara Jangan-Jangan." },
+                { title: "Aksara Serang (Abjad Jawi Lokal)", img: "aksaraserang.jpeg", desc: "Seiring dengan masuknya agama Islam di Sulawesi Selatan pada awal abad ke-17, muncul pula Aksara Serang." },
+                { title: "Lontara Bugis, Makassar, Mandar", img: "lontarabugismakassarmandar.jpg", desc: "Lontara Bugis dipakai dalam naskah epik La Galigo (salah satu karya sastra terpanjang di dunia) dan banyak digunakan untuk sejarah kerajaan, filsafat hidup Bugis, dan Konsep siri’ (harga diri). Lontara Makassar memiliki huruf mirip Lontara Bugis, tetapi memiliki variasi bentuk. Digunakan dalam perjanjian politik, catatan kerajaan Gowa-Tallo, dan hukum adat Makassar. Lontara Mandar berperan dalam mencatat tradisi lisan, hukum adat pesisir, dan pengetahuan pelayaran." }
             ]
         }
     },
     {
-        id: 'papua',
-        title: 'PAPUA',
+        id: 'ntt',
+        title: 'Nusa Tenggara Timur',
         subtitle: 'SURGA KECIL',
         color: '#A020F0',
         hoverColor: '#9400D3',
-        coverImage: 'unnamed.jpg',
+        coverImage: 'ntt1.jpeg',
         backgrounds: {
-            view1: { type: 'image', src: 'unnamed.jpg' },
-            view2: { type: 'image', src: 'unnamed.jpg' },
-            view34: { type: 'image', src: 'unnamed.jpg' }
+            view1: { type: 'image', src: 'ntt1.jpeg' },
+            view2: { type: 'image', src: 'ntt7.jpeg' },
+            view34: { type: 'image', src: 'ntt2.jpeg' }
         },
-        audio: 'kebyar.mp3',
-        audioView: 'kebyar.mp3',
-        animClass: 'reveal-papua',
+        audio: 'nttsatu.mpeg',
+        audioView: 'nttdua.mpeg',
+        animClass: 'reveal-ntt',
         type: 'normal',
         aspects: ['SEJARAH', 'BAHASA', 'BUDAYA', 'AKSARA'],
         aspectImages: {
-            'SEJARAH': 'unnamed.jpg',
-            'BAHASA': 'unnamed.jpg',
-            'BUDAYA': 'unnamed.jpg',
-            'AKSARA': 'unnamed.jpg'
+            'SEJARAH': 'sejarahntt.jpg',
+            'BAHASA': 'bahasantt.jpg',
+            'BUDAYA': 'ntt5.jpeg',
+            'AKSARA': 'aksarantt.jpg'
         },
         details: {
             'SEJARAH': [
-                { title: "Masyarakat Adat Papua", img: "unnamed.jpg", desc: "Papua dihuni oleh berbagai suku asli yang telah mendiami pulau ini selama ribuan tahun dengan budaya yang unik dan beragam." },
-                { title: "Pengaruh Kolonial", img: "unnamed.jpg", desc: "Papua mengalami periode kolonialisme oleh Belanda, yang meninggalkan pengaruh pada pembagian wilayah dan administrasi." },
-                { title: "Integrasi dengan Indonesia", img: "unnamed.jpg", desc: "Proses integrasi Papua ke dalam Negara Kesatuan Republik Indonesia melalui Penentuan Pendapat Rakyat (Pepera) tahun 1969." }
+                { title: "Penjelasan NTT", img: "penjelasanntt.jpg", desc: "Secara historis, penduduk NTT merupakan percampuran keturunan antara bangsa Melanesia dan Austronesia." },
+                { title: "Masa Kerajaan & Kolonial", img: "masakerajaaanntt.jpg", desc: "Sebelum tahun 1900, NTT terdiri dari berbagai kerajaan kecil yang kemudian berubah status menjadi swapraja di bawah pengaruh kolonial. Wilayah ini sempat diperebutkan oleh Portugis dan Belanda karena kekayaan rempahnya." },
+                { title: "Pembentukan Provinsi", img: "pembentukanprovinsintt.jpg", desc: "Provinsi NTT secara resmi dibentuk pada 14 Agustus 1958 berdasarkan Undang-Undang Nomor 64 Tahun 1958. Hingga tahun 2025, provinsi ini terus berkembang dan kini terdiri dari 22 kabupaten/kota." }
             ],
             'BAHASA': [
-                { title: "Bahasa Indonesia Papua", img: "unnamed.jpg", desc: "Varian bahasa Indonesia dengan pengaruh kosakata dan struktur bahasa lokal Papua." },
-                { title: "Bahasa Melayu Papua", img: "unnamed.jpg", desc: "Bahasa kreol yang berkembang dari bahasa Melayu dengan campuran kosakata lokal." },
-                { title: "Bahasa-bahasa Suku", img: "unnamed.jpg", desc: "Lebih dari 250 bahasa daerah yang digunakan oleh berbagai suku di Papua." }
+                { title: "Bahasa NTT", img: "bahasaantt.jpg", desc: "NTT dikenal sebagai salah satu provinsi dengan jumlah bahasa daerah terbanyak di Indonesia." },
+                { title: "Jumlah Bahasa", img: "bahasaaaantt.jpg", desc: "Hingga tahun 2025, tercatat terdapat sekitar 72 hingga 86 bahasa daerah di seluruh wilayah NTT." },
+                { title: "Keberagaman", img: "keberagamanntt.jpg", desc: "Kabupaten Alor menjadi daerah yang paling unik karena memiliki sekitar 32 hingga 42 bahasa dalam satu wilayah. Beberapa bahasa utama yang dominan antara lain Bahasa Dawan, Sabu, Rote, Manggarai, dan Kupang Malay yang sering digunakan sebagai lingua franca atau bahasa pergaulan antar etnis. " }
             ],
             'BUDAYA': [
-                { title: "Rumah Honai", img: "unnamed.jpg", desc: "Rumah tradisional Papua dengan atap jerami dan dinding kayu, biasanya digunakan oleh suku Dani." },
-                { title: "Tari Perang", img: "unnamed.jpg", desc: "Tarian tradisional yang menggambarkan semangat perang dan keberanian suku-suku Papua." },
-                { title: "Pesta Bakar Batu", img: "unnamed.jpg", desc: "Upacara adat memasak dengan cara membakar batu untuk memanaskan makanan dalam lubang tanah." }
+                { title: "Budaya & Tradisi NTT", img: "budayatradisintt.jpg", desc: "NTT memiliki tradisi yang sangat kuat dan khas, bahkan pada Oktober 2025, sebanyak 25 karya budaya NTT ditetapkan sebagai Warisan Budaya Takbenda (WBTb) Indonesia. " },
+                { title: "Ritual & Upacara", img: "upacarantt.jpg", desc: "Tradisi Pasola di Sumba (permainan ketangkasan berkuda dengan melempar lembing) dan Upacara Reba di Ngada merupakan salah satu yang paling populer." },
+                { title: "Kesenian", img: "kesenianntt.jpg", desc: "NTT memiliki berbagai tarian seperti Tari Bonet (tari persaudaraan), Tari Hopong (upacara panen), dan alat musik Sasando yang mendunia." },
+                { title: "Kriya", img: "kriyantt.jpg", desc: "Tenun Ikat adalah identitas budaya NTT yang sangat tinggi nilainya, di mana setiap daerah memiliki motif dan makna filosofis yang berbeda-beda." }
             ],
             'AKSARA': [
-                { title: "Tradisi Lisan", img: "unnamed.jpg", desc: "Sebagian besar budaya Papua mengandalkan tradisi lisan untuk mewariskan pengetahuan dan sejarah." },
-                { title: "Simbol-simbol Adat", img: "unnamed.jpg", desc: "Penggunaan simbol-simbol dalam ukiran, tato, dan benda seni untuk merekam cerita dan nilai-nilai budaya." }
+                { title: "Aksara NTT", img: "aksaraantt.jpg", desc: "Berbeda dengan banyak daerah di Indonesia timur yang tidak memiliki sistem tulis asli, NTT memiliki aksara kuno bernama Aksara Lota. " },
+                { title: "Asal-usul", img: "asalusulaksarantt.jpg", desc: "Aksara Lota berasal dari Ende, Pulau Flores. Aksara ini merupakan turunan dari aksara Bugis (Lontara) yang dibawa oleh pelaut Bugis dan diadaptasi sesuai dengan dialek lokal Ende." },
+                { title: "Penggunaan", img: "penggunaaanaksarantt.jpg", desc: "Dahulu digunakan untuk menulis dokumen adat dan keagamaan. Meskipun saat ini penggunaannya sangat terbatas, pada tahun 2025 terdapat upaya revitalisasi melalui pendidikan di sekolah-sekolah di Ende agar warisan ini tidak punah." }
             ]
         }
     }
@@ -343,7 +365,8 @@ const modalBackgrounds = {
 let currentIndex = 0;
 let isMuted = true; 
 let isModalOpen = false;
-
+let isIntroAudioPlaying = false;
+let introMusic = null;
 // ==================== //
 // FUNGSI BARU - RIPPLE WAVE
 // ==================== //
@@ -374,7 +397,18 @@ function createRipple(event, element) {
 window.onload = () => {
     const vid = document.getElementById('intro-vid');
     vid.loop = false; 
+    
+    // Inisialisasi audio intro TANPA memulai otomatis
+    introMusic = document.getElementById('intro-music');
+    introMusic.loop = true;
+    introMusic.volume = 0.6;
+    introMusic.muted = true; // Muted secara default
+    
+    // Jangan mainkan otomatis, tunggu interaksi user
     vid.play().catch(e => console.log("Menunggu interaksi user"));
+    
+    // Hapus autoplay untuk intro music
+    // introMusic.play().catch(e => console.log("Audio intro menunggu interaksi"));
 
     vid.addEventListener('timeupdate', function() {
         if (this.currentTime > this.duration - 0.5) {
@@ -412,7 +446,21 @@ window.onload = () => {
             document.getElementById('data-list-container').scrollTop = 0;
         }
     });
+    
+    // PERBAIKAN: Event listener untuk menangani klik pertama user
+    document.addEventListener('click', handleFirstUserInteraction, { once: true });
 };
+
+function handleFirstUserInteraction() {
+    // Mainkan intro music saat pertama kali user berinteraksi
+    if (introMusic && document.getElementById('intro-layer').style.display !== 'none') {
+        introMusic.muted = isMuted; // Sesuaikan dengan setting mute
+        introMusic.play().catch(e => {
+            console.log("Gagal memainkan audio intro:", e);
+        });
+        isIntroAudioPlaying = true;
+    }
+}
 
 function toggleSound() {
     isMuted = !isMuted;
@@ -420,18 +468,38 @@ function toggleSound() {
     const bgAudio = document.getElementById('bg-music');
     
     bgAudio.muted = isMuted;
+    
+    // Kontrol audio intro jika masih aktif
+    if (introMusic && isIntroAudioPlaying) {
+        introMusic.muted = isMuted;
+    }
 
     if(isMuted) {
         icon.className = 'fa-solid fa-volume-xmark';
     } else {
         icon.className = 'fa-solid fa-volume-high';
         bgAudio.play().catch(() => {});
+        
+        // Mainkan juga intro music jika masih di intro layer
+        if (document.getElementById('intro-layer').style.display !== 'none' && introMusic && isIntroAudioPlaying) {
+            introMusic.play().catch(() => {});
+        }
     }
 }
 
 function masukWeb() {
     const introVid = document.getElementById('intro-vid');
     introVid.pause(); 
+    
+    // PERBAIKAN: Hentikan audio intro secara lebih agresif
+    if (introMusic && isIntroAudioPlaying) {
+        introMusic.pause();
+        introMusic.currentTime = 0;
+        introMusic.src = ''; // Kosongkan source untuk stop total
+        introMusic.load(); // Reload untuk clear buffer
+        isIntroAudioPlaying = false;
+    }
+    
     document.getElementById('intro-layer').style.display = 'none';
     document.getElementById('main-header').style.display = 'flex';
     
@@ -655,7 +723,7 @@ function siapkanView2(data) {
         'baubau':   { in: 'anim-swirl',    hov: 'hover-pulse',  out: 'exit-baubau' },
         'mentawai': { in: 'anim-cascade',  hov: 'hover-breath', out: 'exit-mentawai' },
         'sulsel':   { in: 'anim-sail',     hov: 'hover-wind',   out: 'exit-sulsel' },
-        'papua':    { in: 'anim-fog',      hov: 'hover-aurora', out: 'exit-papua' }
+        'ntt':    { in: 'anim-fog',      hov: 'hover-aurora', out: 'exit-ntt' }
     };
     
     const theme = animConfig[data.id] || { in: '', hov: '', out: '' };
@@ -1036,11 +1104,57 @@ function bukaModal(judul) {
     }, 100);
 }
 
+function bukaModalTeksWebsite() {
+    document.getElementById("modal-title").innerText = "ABOUT THIS WEBSITE";
+    document.getElementById("modal-overlay").classList.add("show");
+    document.body.classList.add('modal-accent');
+    isModalOpen = true;
+    
+    // Gunakan accent warna kuning (sama seperti ABOUT US)
+    const root = document.documentElement;
+    root.style.setProperty('--theme-color', 'var(--accent-website)');
+    root.style.setProperty('--hover-color', 'var(--accent-website)');
+    document.body.classList.add('website-mode'); // Class baru
+    document.body.classList.remove('about-mode');
+    document.body.classList.remove('contact-mode');
+    
+    // Isi konten modal dengan teks
+    const modal = document.getElementById("modal-content");
+    modal.innerHTML = `
+        <div class="website-description">
+            <h3>Nusantara Indah</h3>
+            <p><b>Nusantara Indah</b> adalah platform digital edukatif yang dirancang khusus untuk memperkenalkan kekayaan budaya dan sejarah berbagai daerah di Indonesia secara mendalam.</p>
+            <p>Website ini mengusung identitas visual yang kuat melalui tipografi berwarna merah-putih, yang melambangkan keberanian, semangat juang, kesucian, serta harmoni antara raga dan jiwa manusia. Untuk menghadirkan pengalaman yang imersif, kami mengintegrasikan visualisasi autentik dari setiap daerah yang dipadukan dengan alunan instrumen musik khas setempat (lagu daerah) saat pengguna menjelajah.</p>
+            <p>Secara estetika, Nusantara hadir dengan palet warna yang elegan, teduh di mata, serta dipermanis dengan sentuhan animasi halus agar tampilan terasa dinamis namun tetap profesional. Fokus utama kami terletak pada fungsionalitas dan aspek intuitif, memastikan struktur navigasi yang tertata rapi serta responsif di berbagai perangkat guna memberikan kenyamanan maksimal bagi setiap pengguna.</p>
+        </div>
+    `;
+    
+    // Pastikan modal body scrollable untuk konten panjang
+    const modalBody = document.querySelector('.modal-body');
+    if (modalBody) {
+        // Reset semua gaya yang mungkin menghalangi scroll
+        modalBody.style.overflow = '';
+        modalBody.style.justifyContent = '';
+        modalBody.style.alignItems = '';
+        
+        // Tambah kelas untuk styling khusus scroll
+        modalBody.classList.add('scrollable');
+        
+        // Pastikan konten dimulai dari atas
+        setTimeout(() => {
+            modalBody.scrollTop = 0;
+        }, 10);
+    }
+    
+    ensureModalHeight();
+}
+
 function closeModal() {
     document.getElementById('modal-overlay').classList.remove('show');
     document.body.classList.remove('modal-accent');
     document.body.classList.remove('about-mode');
     document.body.classList.remove('contact-mode');
+    document.body.classList.remove('website-mode');
     isModalOpen = false;
     
     const data = db[currentIndex];
@@ -1101,6 +1215,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('sidebar-list').querySelectorAll('li')[2].onclick = function() {
         bukaModal("CONTACT US");
+    };
+
+    document.getElementById('sidebar-list').querySelectorAll('li')[3].onclick = function() {
+        bukaModalTeksWebsite();
     };
     
     const mainCard = document.querySelector('.main-card');

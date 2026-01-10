@@ -5,6 +5,7 @@
     --hover-color: #FFFFFF;
     --accent-about: #FFD166;
     --accent-contact: #4CC9F0;
+    --accent-website: #22C55E;
     --nav-h: 100px;
 }
 
@@ -352,13 +353,13 @@ body.indo-active .aspect-card::before {
     }
 }
 
-/* Papua - Flip Card */
-.reveal-papua .aspect-card {
-    animation: papuaFlipCard 1.2s ease forwards;
+/* NTT - Flip Card */
+.reveal-ntt .aspect-card {
+    animation: nttFlipCard 1.2s ease forwards;
     transform-style: preserve-3d;
 }
 
-@keyframes papuaFlipCard {
+@keyframes nttFlipCard {
     0% { 
         transform: rotateX(180deg) scale(0.8); 
         opacity: 0; 
@@ -418,8 +419,8 @@ body.indo-active .aspect-card:hover {
     border-color: #8B4513;
 }
 
-/* Papua Hover */
-.reveal-papua .aspect-card:hover {
+/* NTT Hover */
+.reveal-ntt .aspect-card:hover {
     transform: scale(1.05) rotateX(-5deg);
     box-shadow: 
         0 15px 35px rgba(160, 32, 240, 0.4),
@@ -797,6 +798,11 @@ body.modal-accent.contact-mode {
     --theme-color: var(--accent-contact);
     --hover-color: var(--accent-contact);
 }
+
+body.modal-accent.website-mode {
+    --theme-color: var(--accent-website);
+    --hover-color: var(--accent-website);
+}
 .menu-utama-btn {
     position: fixed;
     top: 30px;
@@ -1053,10 +1059,34 @@ body.view-1-active .region-display {
 
 /* Jika konten tinggi, mulai dari atas */
 .modal-body.scrollable {
-    align-items: flex-start;
-    padding-top: 20px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 25px !important;
+    max-height: calc(80vh - 120px) !important;
+}
+/* Scrollbar khusus untuk modal about this website */
+.modal-body.scrollable::-webkit-scrollbar {
+    width: 8px;
 }
 
+.modal-body.scrollable::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 4px 0;
+}
+
+.modal-body.scrollable::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--theme-color), rgba(255,255,255,0.7));
+    border-radius: 10px;
+}
+
+.modal-body.scrollable::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffff, var(--theme-color));
+}
 .modal-body .aspect-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1070,6 +1100,75 @@ body.view-1-active .region-display {
     height: 100%; /* ISI SELURUH TINGGI */
 }
 
+.website-description {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px 25px 40px 25px; /* Lebih banyak padding bawah */
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    margin-bottom: 20px; /* Tambah margin bawah */
+}
+
+.website-description h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--accent-website);
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.website-description h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--accent-website);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.website-description p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.website-description ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.website-description li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.website-description li:before {
+    content: "•";
+    color: var(--accent-website);
+    position: absolute;
+    left: -10px;
+}
+
+.website-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.website-footer p {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 15px;
+}
 /* Sidebar */
 #sidebar {
     position: fixed;
@@ -2040,7 +2139,7 @@ body.view-1-active #dark-overlay {
     to { transform: scaleY(1); } 
 }
 
-.reveal-papua { animation: flipCard 0.8s ease; } 
+.reveal-ntt { animation: flipCard 0.8s ease; } 
 @keyframes flipCard { 
     from { transform: rotateX(180deg); opacity: 0; } 
     to { transform: rotateX(0); opacity: 1; } 
@@ -2373,6 +2472,22 @@ body.view-1-active #dark-overlay {
         font-size: 0.95rem;
         padding: 8px 0;
     }
+    .website-description {
+        padding: 15px;
+    }
+    
+    .website-description h3 {
+        font-size: 1.6rem;
+    }
+    
+    .website-description h4 {
+        font-size: 1.1rem;
+    }
+    
+    .website-description p,
+    .website-description li {
+        font-size: 0.95rem;
+    }
 }
 
 /* Untuk layar sangat kecil (mobile portrait) */
@@ -2460,7 +2575,7 @@ body.view-1-active #dark-overlay {
 .hover-wind:hover { transform: skewX(-3deg) translateX(5px); box-shadow: 8px 8px 0px rgba(139,69,19,0.5); border-color: #8B4513; }
 @keyframes sailIn { from { opacity:0; transform: translateX(-50px) skewX(10deg); } to { opacity:1; transform: translateX(0) skewX(0); } }
 
-/* --- PAPUA (Mystical Fog & Aurora) --- */
+/* --- NTT (Mystical Fog & Aurora) --- */
 .anim-fog { animation: fogReveal 1.2s ease-in backwards; animation-delay: calc(var(--i) * 0.2s); }
 .hover-aurora:hover { box-shadow: 0 0 15px #A020F0, 0 0 30px #00FFFF; border-color: rgba(255,255,255,0.9); transition: box-shadow 0.5s ease; }
 @keyframes fogReveal { from { opacity:0; filter: blur(20px); transform: scale(1.1); } to { opacity:1; filter: blur(0); transform: scale(1); } }
@@ -2526,8 +2641,8 @@ body.view-1-active #dark-overlay {
     transform: skewX(-1deg) translateX(4px); /* Miring halus */
 }
 
-/* 6. PAPUA: Purple Neon Vibe */
-.data-card.region-papua:hover {
+/* 6. NTT: Purple Neon Vibe */
+.data-card.region-ntt:hover {
     background: linear-gradient(90deg, rgba(160, 32, 240, 0.15), transparent);
     border-left: 4px solid #A020F0;
     box-shadow: 0 0 15px #A020F0, 0 0 30px #4B0082;
@@ -2621,22 +2736,22 @@ body.view-1-active #dark-overlay {
 }
 
 
-/* --- 5. PAPUA (Mist/Fog Dissolve) --- */
+/* --- 5. NTT (Mist/Fog Dissolve) --- */
 /* Masuk */
 .aspect-card.anim-fog {
-    animation: papuaEnter 1.2s ease backwards;
+    animation: nttEnter 1.2s ease backwards;
     animation-delay: calc(var(--i) * 0.2s);
 }
-@keyframes papuaEnter {
+@keyframes nttEnter {
     from { opacity: 0; filter: blur(10px); transform: scale(1.1); }
     to { opacity: 1; filter: blur(0); transform: scale(1); }
 }
 
 /* Keluar (Saat diklik - Menguap jadi kabut) */
-.aspect-container.exit-papua .aspect-card {
-    animation: papuaExit 0.7s ease-out forwards;
+.aspect-container.exit-ntt .aspect-card {
+    animation: nttExit 0.7s ease-out forwards;
 }
-@keyframes papuaExit {
+@keyframes nttExit {
     to { opacity: 0; filter: blur(20px); transform: scale(1.5); }
 }
 
